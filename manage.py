@@ -45,6 +45,7 @@ class Project(db.Model):
     workersNumber = db.Column(db.Integer)
     projectStatus = db.Column(db.String(20))
     mainProject = db.Column(db.Boolean)
+    createTimeStamp = db.Column(db.Integer)
 
     def __init__(self,
                  projectName="",
@@ -52,13 +53,15 @@ class Project(db.Model):
                  workersOpenid="",
                  workersNumber=0,
                  projectStatus="",
-                 mainProject=False):
+                 mainProject=False,
+                 createTimeStamp=""):
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
         self.workersOpenid = workersOpenid
         self.workersNumber = workersNumber
         self.projectStatus = projectStatus
         self.mainPRoject = mainProject
+        self.createTimeStamp = createTimeStamp
 
     def __repr__(self):
         return '<Project %r>' % self.id

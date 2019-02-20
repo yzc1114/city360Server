@@ -1,5 +1,6 @@
 from flask import Blueprint
 from flask import request
+from flask import send_from_directory
 import os
 import shutil
 import json
@@ -88,13 +89,15 @@ def newProject():
     print(request.form)
     projectName = request.form['projectName']
     creatorOpenid = request.form['creatorOpenid']
+    createTimeStamp = request.form['createTimeStamp']
+    mainProject = request.form['mainProject']
     projectId = controller.insertProject(projectName=projectName,
-                            creatorOpenid=creatorOpenid,
-                            workersOpenid="",
-                            workersNumber=0,
-                            projectStatus="",
-                            mainProject=False)
-    projectId = str(projectId).zfill(6)
+                                         creatorOpenid=creatorOpenid,
+                                         workersOpenid="",
+                                         workersNumber=0,
+                                         projectStatus="方案设计阶段",
+                                         mainProject=mainProject,
+                                         createTimeStamp=createTimeStamp)
     projectImgDir = os.path.join(projectImgsDir, projectId)
     # if we have got the directory already, delete it and remake one
     if projectId in os.listdir(projectImgsDir):
@@ -115,7 +118,9 @@ def updateProject():
         'workersOpenid': None,
         'workersNumber': None,
         'projectStatus': None,
-        'mainProject': None
+        'mainProject': None,
+        'createTimeStamp': None,
+        'updateImg': None,
     }
     for (key, value) in attrs.items():
         if key in request.form:
@@ -127,13 +132,15 @@ def updateProject():
                                          workersOpenid=attrs['workersOpenid'],
                                          workersNumber=attrs['workersNumber'],
                                          projectStatus=attrs['projectStatus'],
-                                         mainProject=attrs['mainProject'])
-    projectId = str(projectId).zfill(6)
-    projectImgDir = os.path.join(projectImgsDir, projectId)
-    # if we have got the directory already, delete it and remake one
-    if projectId in os.listdir(projectImgsDir):
-        shutil.rmtree(projectImgDir)
-    os.mkdir(projectImgDir)
+                                         mainProject=attrs['mainProject'],
+                                         createTimeStamp=attrs['createTimeStamp'])
+    if attrs['updateImg']:
+        projectId = str(projectId).zfill(6)
+        projectImgDir = os.path.join(projectImgsDir, projectId)
+        # if we have got the directory already, delete it and remake one
+        if projectId in os.listdir(projectImgsDir):
+            shutil.rmtree(projectImgDir)
+        os.mkdir(projectImgDir)
     return projectId
 
 
@@ -166,3 +173,51 @@ def query_if_mine_or_participated():
     return result
 
 
+@blue.route('/joinProject', methods=['POST'])
+def joinProject():
+    from db_control import controller
+    openid = request.form['openid']
+    projectId = request.form['projectId']
+    result = controller.joinProject(openid, projectId)
+    return result
+
+
+@blue.route('/project/getMainProject')
+def getMainProject():
+    from db_control import controller
+    return json.dumps(controller.getMainProject())
+
+
+@blue.route('/project/getProject', methods=['POST'])
+def getProject():
+    from db_control import controller
+    projectId = request.form['projectId']
+    return json.dumps(controller.getProject(projectId))
+
+
+@blue.route('/downloadImg/<projectId>', methods=['GET'])
+def downloadImg(projectId):
+    projectImgDir = os.path.join(projectImgsDir, projectId)
+    filename = projectId + '.png'
+    return send_from_directory(projectImgDir, filename, as_attachment=True)
+
+
+@blue.route('/project/query_batch_projects', methods=['POST'])
+def query_batch_projects():
+    from db_control import controller
+    print(request.form)
+    order_by = request.form['order_by']
+    start = int(request.form['start'])
+    end = int(request.form['end'])
+    result_dict = controller.query_batch_projects(order_by=order_by,
+                                    start=start,
+                                    end=end)
+    return json.dumps(result_dict)
+
+
+@blue.route('/project/deleteProject', methods=['POST'])
+def deleteProject():
+    from db_control import controller
+    print(request.form)
+    projectId = request.form['projectId']
+    return controller.deleteProject(projectId)
