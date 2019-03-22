@@ -1,0 +1,412 @@
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Feb 23 01:03:34 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2324750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2324750 pid: 6502 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6502)
+spawned uWSGI worker 1 (pid: 6504, cores: 10)
+spawned uWSGI worker 2 (pid: 6505, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Feb 23 01:11:50 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0xf7a750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xf7a750 pid: 7210 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 7210)
+spawned uWSGI worker 1 (pid: 7212, cores: 10)
+spawned uWSGI worker 2 (pid: 7213, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Feb 23 01:21:05 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0xd09750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xd09750 pid: 8015 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 8015)
+spawned uWSGI worker 1 (pid: 8017, cores: 10)
+spawned uWSGI worker 2 (pid: 8018, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Feb 23 10:16:32 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1553750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1553750 pid: 20893 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 20893)
+spawned uWSGI worker 1 (pid: 20895, cores: 10)
+spawned uWSGI worker 2 (pid: 20896, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 35, in insertUser
+    participatedProjects=participatedProjects)
+  File "./db_control/controller.py", line 23, in insertUser
+    db.session.flush()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2446, in flush
+    self._flush(objects)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2584, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 67, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2544, in _flush
+    flush_context.execute()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 416, in execute
+    rec.execute(self)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 583, in execute
+    uow,
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1116, in _emit_insert_statements
+    statement, params
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 980, in execute
+    return meth(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
+    distilled_params,
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1458, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 296, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user [SQL: u'INSERT INTO user ("userIdentity", openid, "avatarUrl", "nickName", "ownedProjects", "participatedProjects") VALUES (?, ?, ?, ?, ?, ?)'] [parameters: (None, u'onM4-5d_q8Pc-8uMWKQtWBlMrNkk', u'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoAjORlv6WkxAnnTsG0zK880jKIfPOtBicsKFLiam2SlBDjy5nd7juf3eSxvfFo2coy994WSF4PwINA/132', u'Auditore', '', '')] (Background on this error at: http://sqlalche.me/e/e3q8)
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 196, in getMainProject
+    return json.dumps(controller.getMainProject())
+  File "./db_control/controller.py", line 214, in getMainProject
+    plist = Project.query.filter_by(mainProject=1).all()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2925, in all
+    return list(self)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3081, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3106, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 980, in execute
+    return meth(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
+    distilled_params,
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1458, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 296, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: project [SQL: u'SELECT project.id AS project_id, project."projectName" AS "project_projectName", project."creatorOpenid" AS "project_creatorOpenid", project."workersOpenid" AS "project_workersOpenid", project."workersNumber" AS "project_workersNumber", project."projectStatus" AS "project_projectStatus", project."mainProject" AS "project_mainProject", project."createTimeStamp" AS "project_createTimeStamp" \nFROM project \nWHERE project."mainProject" = ?'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 222, in query_batch_projects
+    end=end)
+  File "./db_control/controller.py", line 238, in query_batch_projects
+    plist = Project.query.order_by(Project.createTimeStamp.desc()).all()[start: end]
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2925, in all
+    return list(self)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3081, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3106, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 980, in execute
+    return meth(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
+    distilled_params,
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1458, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 296, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: project [SQL: u'SELECT project.id AS project_id, project."projectName" AS "project_projectName", project."creatorOpenid" AS "project_creatorOpenid", project."workersOpenid" AS "project_workersOpenid", project."workersNumber" AS "project_workersNumber", project."projectStatus" AS "project_projectStatus", project."mainProject" AS "project_mainProject", project."createTimeStamp" AS "project_createTimeStamp" \nFROM project ORDER BY project."createTimeStamp" DESC'] (Background on this error at: http://sqlalche.me/e/e3q8)
+SIGINT/SIGQUIT received...killing workers...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Sat Feb 23 10:19:12 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1264750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1264750 pid: 21148 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 21148)
+spawned uWSGI worker 1 (pid: 21150, cores: 10)
+spawned uWSGI worker 2 (pid: 21151, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 203, in getProject
+    return json.dumps(controller.getProject(projectId))
+  File "./db_control/controller.py", line 197, in getProject
+    projectId_int = int(projectId)
+ValueError: invalid literal for int() with base 10: ''

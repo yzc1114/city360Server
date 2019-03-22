@@ -1,4 +1,4 @@
-from flask_script import Manager
+# -*- coding: utf-8 -*-
 from utils import create_app
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -13,8 +13,8 @@ db = SQLAlchemy(app)
 
 
 class User(db.Model):
-    # 定义一个数据表格
-    # User数据表格 存储个人信息
+    #
+    #
     id = db.Column(db.Integer, primary_key=True)
     userIdentity = db.Column(db.String(10))
     openid = db.Column(db.String(20))
@@ -37,14 +37,14 @@ class User(db.Model):
 
 
 class Project(db.Model):
-    # 定义Project表格 存储项目信息
+    #
     id = db.Column(db.Integer, primary_key=True)
     projectName = db.Column(db.String(20))
     creatorOpenid = db.Column(db.String(20))
     workersOpenid = db.Column(db.Text)
     workersNumber = db.Column(db.Integer)
     projectStatus = db.Column(db.String(20))
-    mainProject = db.Column(db.Boolean)
+    mainProject = db.Column(db.Integer)
     createTimeStamp = db.Column(db.Integer)
 
     def __init__(self,
@@ -53,14 +53,14 @@ class Project(db.Model):
                  workersOpenid="",
                  workersNumber=0,
                  projectStatus="",
-                 mainProject=False,
+                 mainProject=0,
                  createTimeStamp=""):
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
         self.workersOpenid = workersOpenid
         self.workersNumber = workersNumber
         self.projectStatus = projectStatus
-        self.mainPRoject = mainProject
+        self.mainProject = mainProject
         self.createTimeStamp = createTimeStamp
 
     def __repr__(self):
@@ -70,9 +70,14 @@ class Project(db.Model):
 def db_init():
     db.create_all()
 
+@app.route("/")
+def index():
+    return "real hello world"
+
 
 if __name__ == '__main__':
     # db_init()
     print(User)
-    app.run(port=5000)
+    print("start server")
+    app.run(host="0.0.0.0", port=5000)
 

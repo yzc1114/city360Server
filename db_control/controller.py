@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from manage import User
 from manage import Project
 from manage import db
@@ -81,7 +82,7 @@ def insertProject(projectName="",
                   workersOpenid="",
                   workersNumber=0,
                   projectStatus="",
-                  mainProject=False,
+                  mainProject=0,
                   createTimeStamp=""):
     """
     :parameter imagesPath: stores all paths of the project's images
@@ -105,8 +106,8 @@ def insertProject(projectName="",
         db.session.add(u)
     else:
         # in case with test, we pass
-        # return "wrong"
-        pass
+        return "wrong"
+        
     db.session.commit()
     return projectId
 
@@ -143,7 +144,7 @@ def updateProject(projectId=None,
         p.projectStatus = projectStatus
     if workersNumber:
         p.workersNumber = workersNumber
-    if mainProject is False or mainProject is True:
+    if mainProject is not None:
         p.mainProject = mainProject
     if createTimeStamp:
         p.createTimeStamp = createTimeStamp
@@ -210,7 +211,7 @@ def getProject(projectId):
 
 
 def getMainProject():
-    plist = Project.query.filter_by(mainProject=True).all()
+    plist = Project.query.filter_by(mainProject=1).all()
     if len(plist) == 0:
         return "no main project"
     p = plist[0]
@@ -252,7 +253,7 @@ def query_batch_projects(order_by, start, end):
         u = User.query.filter_by(openid=p.creatorOpenid).first()
         tempD.update({'creatorNickName': u.nickName})
         pDictArray.append(tempD.copy())
-    print("查询到的plist", pDictArray)
+    print("plist", pDictArray)
     return pDictArray
 
 

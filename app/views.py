@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Blueprint
 from flask import request
 from flask import send_from_directory
@@ -14,7 +15,7 @@ projectImgsDir = os.path.join(baseDir, 'projectImgs')
 
 @blue.route('/')
 def index():
-    return 'Hello,world!'
+    return 'new Hello,world!'
 
 
 @blue.route('/insertUser', methods=['POST'])
@@ -91,11 +92,15 @@ def newProject():
     creatorOpenid = request.form['creatorOpenid']
     createTimeStamp = request.form['createTimeStamp']
     mainProject = request.form['mainProject']
+    if mainProject == "true":
+        mainProject = 1
+    else:
+        mainProject = 0
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
                                          workersOpenid="",
                                          workersNumber=0,
-                                         projectStatus="方案设计阶段",
+                                         projectStatus=u"方案设计阶段",
                                          mainProject=mainProject,
                                          createTimeStamp=createTimeStamp)
     projectImgDir = os.path.join(projectImgsDir, projectId)
@@ -148,16 +153,19 @@ def updateProject():
 def uploadImg():
     from db_control import controller
     data = request.get_data()
-    print(data)
+    print("!!!!!!!!!!!!!!!!!!ORIGINAL DATA")
+    print(str(data))
     boundary = data.split(b'\r\n')[0]
+    print("BOUNDARY IS ====>", boundary)
     form_list = data.split(boundary)
-    print(form_list)
-    projectId = str(form_list[1].split(b'\r\n')[-2], encoding='utf-8')
+    print("BOUNDARY SPLIT DATA, RESULT ====>", form_list)
+    projectId = str(form_list[1].split(b'\r\n')[-2])
+    print("projectId ====>", projectId)
     img_part = form_list[2].split(b'\r\n')
-    print(img_part[-2])
-    print(img_part[-1])
-    img_content = img_part[-2] + b'\r\n' + img_part[-1]
-    print(img_content)
+    print("FIRST PART OF IMG ====>",img_part[-3])
+    print("SECOND PART OF IMG ====>", img_part[-2])
+    img_content = img_part[-3] + b'\r\n' + img_part[-2]
+    print("ALL OF IMG ====>", img_content)
     projectImgDir = os.path.join(projectImgsDir, projectId, projectId + '.png')
     with open(projectImgDir, 'wb') as f:
         f.write(img_content)
