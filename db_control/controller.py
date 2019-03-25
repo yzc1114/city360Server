@@ -82,14 +82,9 @@ def insertProject(projectName="",
                   workersOpenid="",
                   workersNumber=0,
                   projectStatus="",
-<<<<<<< HEAD
                   mainProject=False,
                   createTimeStamp="",
                   imageFileName=""):
-=======
-                  mainProject=0,
-                  createTimeStamp=""):
->>>>>>> 71453a33b7f813ee4e55977059a8ba944527c4cf
     """
     :parameter imagesPath: stores all paths of the project's images
     :return: projectId
@@ -338,8 +333,4 @@ def exitProject(openid, projectId):
     db.session.add(u)
     db.session.delete(p)
     db.session.commit()
-<<<<<<< HEAD
     return "exit success"
-=======
-    return "delete success"
->>>>>>> 71453a33b7f813ee4e55977059a8ba944527c4cf

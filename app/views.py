@@ -94,16 +94,12 @@ def newProject():
     projectName = request.form['projectName']
     creatorOpenid = request.form['creatorOpenid']
     createTimeStamp = request.form['createTimeStamp']
-    mainProject = request.form['mainProject']
-<<<<<<< HEAD
     mainProject = False if 'false' == mainProject else True
     imageFileName = request.form['imageFileName']
-=======
     if mainProject == "true":
         mainProject = 1
     else:
         mainProject = 0
->>>>>>> 71453a33b7f813ee4e55977059a8ba944527c4cf
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
                                          workersOpenid="",
@@ -251,7 +247,6 @@ def deleteProject():
     from db_control import controller
     print(request.form)
     projectId = request.form['projectId']
-<<<<<<< HEAD
     openid = request.form['openid']
     return controller.deleteProject(projectId, openid)
 
@@ -284,6 +279,4 @@ def exitProject():
     from db_control import controller
     openid = request.form['openid']
     projectId = request.form['projectId']
-=======
     return controller.deleteProject(projectId)
->>>>>>> 71453a33b7f813ee4e55977059a8ba944527c4cf

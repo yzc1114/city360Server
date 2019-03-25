@@ -55,14 +55,11 @@ class Project(db.Model):
                  workersOpenid="",
                  workersNumber=0,
                  projectStatus="",
-<<<<<<< HEAD
                  mainProject=False,
                  createTimeStamp="",
                  imageFileName=""):
-=======
                  mainProject=0,
                  createTimeStamp=""):
->>>>>>> 71453a33b7f813ee4e55977059a8ba944527c4cf
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
         self.workersOpenid = workersOpenid
@@ -90,4 +87,3 @@ if __name__ == '__main__':
     print(User)
     print("start server")
     app.run(host="0.0.0.0", port=5000)
-
