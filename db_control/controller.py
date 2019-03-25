@@ -82,7 +82,8 @@ def insertProject(projectName="",
                   workersNumber=0,
                   projectStatus="",
                   mainProject=False,
-                  createTimeStamp=""):
+                  createTimeStamp="",
+                  imageFileName=""):
     """
     :parameter imagesPath: stores all paths of the project's images
     :return: projectId
@@ -93,7 +94,8 @@ def insertProject(projectName="",
                       workersNumber=workersNumber,
                       projectStatus=projectStatus,
                       mainProject=mainProject,
-                      createTimeStamp=createTimeStamp)
+                      createTimeStamp=createTimeStamp,
+                      imageFileName=imageFileName)
     db.session.add(project)
     db.session.flush()
     projectId = project.id
@@ -118,7 +120,8 @@ def updateProject(projectId=None,
                   workersNumber=None,
                   projectStatus=None,
                   mainProject=None,
-                  createTimeStamp=None):
+                  createTimeStamp=None,
+                  imageFileName=None):
     """
     :param projectId: primary key
     :param projectName: col
@@ -147,6 +150,8 @@ def updateProject(projectId=None,
         p.mainProject = mainProject
     if createTimeStamp:
         p.createTimeStamp = createTimeStamp
+    if imageFileName:
+        p.imageFileName = imageFileName
     db.session.add(p)
     db.session.commit()
     return projectId
@@ -203,7 +208,8 @@ def getProject(projectId):
         'workersNumber': p.workersNumber,
         'projectStatus': p.projectStatus,
         'mainProject': p.mainProject,
-        'createTimeStamp': p.createTimeStamp
+        'createTimeStamp': p.createTimeStamp,
+        'imageFileName': p.imageFileName
     }
     print("getProject", d)
     return d
@@ -222,7 +228,8 @@ def getMainProject():
         'workersNumber': p.workersNumber,
         'projectStatus': p.projectStatus,
         'mainProject': p.mainProject,
-        'createTimeStamp': p.createTimeStamp
+        'createTimeStamp': p.createTimeStamp,
+        'imageFileName': p.imageFileName
     }
     u = User.query.filter_by(openid=p.creatorOpenid).first()
     d.update({'creatorNickName': u.nickName})
@@ -247,7 +254,8 @@ def query_batch_projects(order_by, start, end):
             'workersNumber': p.workersNumber,
             'projectStatus': p.projectStatus,
             'mainProject': p.mainProject,
-            'createTimeStamp': p.createTimeStamp
+            'createTimeStamp': p.createTimeStamp,
+            'imageFileName': p.imageFileName
         }
         u = User.query.filter_by(openid=p.creatorOpenid).first()
         tempD.update({'creatorNickName': u.nickName})
@@ -256,11 +264,72 @@ def query_batch_projects(order_by, start, end):
     return pDictArray
 
 
-def deleteProject(projectId):
+def deleteProject(projectId, openid):
+    """
+    :param projectId: the projectId to be deleted
+    :param openid: the projectId's owner openid
+    :return: result success or not
+    """
     plist = Project.query.filter_by(id=projectId).all()
-    if len(plist) != 1:
-        return "projectId wrong"
+    ulist = User.query.filter_by(openid=openid).all()
+    print(projectId, openid)
+    print(plist, ulist)
+    if len(plist) != 1 or len(ulist) != 1:
+        return "something wrong"
     p = plist[0]
+    u = ulist[0]
+    ownedProjectsStr = u.ownedProjects
+    ownedProjectsStr = removeSubproject(ownedProjectsStr, projectId)
+    if ownedProjectsStr:
+        u.ownedProjects = ownedProjectsStr
+    else:
+        return "something wrong deletingProject"
+    db.session.add(u)
     db.session.delete(p)
     db.session.commit()
     return "delete success"
+
+
+def removeSubproject(projectIds, projectId):
+    if projectIds.find(projectId) == -1:
+        return None
+    splited = projectIds.split(projectId)
+    if len(splited) != 2:
+        return None
+    if splited[0] == '' and splited[1] == '':
+        projectIds = ""
+    elif splited[0] == '' and splited[1] != '':
+        projectIds = splited[1][1:]
+    elif splited[1] == '' and splited[0] != '':
+        projectIds = splited[0][:-1]
+    elif splited[0] != '' and splited[0] != '':
+        projectIds = splited[0][:-1] + splited[1]
+    else:
+        return None
+    return projectIds
+
+
+def exitProject(openid, projectId):
+    """
+    :param openid: participator
+    :param projectId: project to be exited
+    :return: result success or not
+    """
+    plist = Project.query.filter_by(id=projectId).all()
+    ulist = User.query.filter_by(openid=openid).all()
+    print(projectId, openid)
+    print(plist, ulist)
+    if len(plist) != 1 or len(ulist) != 1:
+        return "something wrong"
+    p = plist[0]
+    u = ulist[0]
+    participatedProjectsStr = u.participatedProjects
+    participatedProjectsStr = removeSubproject(participatedProjectsStr, projectId)
+    if participatedProjectsStr:
+        u.participatedProjects = participatedProjectsStr
+    else:
+        return "something wrong exitingProject"
+    db.session.add(u)
+    db.session.delete(p)
+    db.session.commit()
+    return "exit success"

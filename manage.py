@@ -46,6 +46,8 @@ class Project(db.Model):
     projectStatus = db.Column(db.String(20))
     mainProject = db.Column(db.Boolean)
     createTimeStamp = db.Column(db.Integer)
+    imageFileName = db.Column(db.String(20))
+
 
     def __init__(self,
                  projectName="",
@@ -54,14 +56,17 @@ class Project(db.Model):
                  workersNumber=0,
                  projectStatus="",
                  mainProject=False,
-                 createTimeStamp=""):
+                 createTimeStamp="",
+                 imageFileName=""):
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
         self.workersOpenid = workersOpenid
         self.workersNumber = workersNumber
         self.projectStatus = projectStatus
-        self.mainPRoject = mainProject
+        self.mainProject = mainProject
         self.createTimeStamp = createTimeStamp
+        self.imageFileName = imageFileName
+
 
     def __repr__(self):
         return '<Project %r>' % self.id

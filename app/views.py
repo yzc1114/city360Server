@@ -11,6 +11,9 @@ blue = Blueprint('first', __name__)
 baseDir = os.getcwd()
 # all images dir
 projectImgsDir = os.path.join(baseDir, 'projectImgs')
+# pic dir
+picDir = os.path.join(baseDir, 'pic')
+
 
 @blue.route('/')
 def index():
@@ -91,18 +94,21 @@ def newProject():
     creatorOpenid = request.form['creatorOpenid']
     createTimeStamp = request.form['createTimeStamp']
     mainProject = request.form['mainProject']
+    mainProject = False if 'false' == mainProject else True
+    imageFileName = request.form['imageFileName']
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
                                          workersOpenid="",
                                          workersNumber=0,
                                          projectStatus="方案设计阶段",
                                          mainProject=mainProject,
-                                         createTimeStamp=createTimeStamp)
-    projectImgDir = os.path.join(projectImgsDir, projectId)
+                                         createTimeStamp=createTimeStamp,
+                                         imageFileName=imageFileName)
+    # projectImgDir = os.path.join(projectImgsDir, projectId)
     # if we have got the directory already, delete it and remake one
-    if projectId in os.listdir(projectImgsDir):
-        shutil.rmtree(projectImgDir)
-    os.mkdir(projectImgDir)
+    # if projectId in os.listdir(projectImgsDir):
+    #     shutil.rmtree(projectImgDir)
+    # os.mkdir(projectImgDir)
     return projectId
 
 
@@ -120,7 +126,7 @@ def updateProject():
         'projectStatus': None,
         'mainProject': None,
         'createTimeStamp': None,
-        'updateImg': None,
+        'imageFileName': None
     }
     for (key, value) in attrs.items():
         if key in request.form:
@@ -133,14 +139,15 @@ def updateProject():
                                          workersNumber=attrs['workersNumber'],
                                          projectStatus=attrs['projectStatus'],
                                          mainProject=attrs['mainProject'],
-                                         createTimeStamp=attrs['createTimeStamp'])
-    if attrs['updateImg']:
-        projectId = str(projectId).zfill(6)
-        projectImgDir = os.path.join(projectImgsDir, projectId)
-        # if we have got the directory already, delete it and remake one
-        if projectId in os.listdir(projectImgsDir):
-            shutil.rmtree(projectImgDir)
-        os.mkdir(projectImgDir)
+                                         createTimeStamp=attrs['createTimeStamp'],
+                                         imageFileName=attrs['imageFileName'])
+    # if attrs['updateImg']:
+    #     projectId = str(projectId).zfill(6)
+    #     projectImgDir = os.path.join(projectImgsDir, projectId)
+    #     # if we have got the directory already, delete it and remake one
+    #     if projectId in os.listdir(projectImgsDir):
+    #         shutil.rmtree(projectImgDir)
+    #     os.mkdir(projectImgDir)
     return projectId
 
 
@@ -195,11 +202,24 @@ def getProject():
     return json.dumps(controller.getProject(projectId))
 
 
-@blue.route('/downloadImg/<projectId>', methods=['GET'])
-def downloadImg(projectId):
-    projectImgDir = os.path.join(projectImgsDir, projectId)
-    filename = projectId + '.png'
-    return send_from_directory(projectImgDir, filename, as_attachment=True)
+#@blue.route('/downloadImg/<imgFileName>')
+#def downloadImg(imgFileName):
+#    imageFileName = imgFileName
+#    projectImgDir = os.path.join(picDir, imageFileName)
+#    filename = imageFileName + '.jpg'
+#    return send_from_directory(projectImgDir, filename, as_attachment=True)
+
+
+@blue.route('/downloadImg/<test>')
+def downloadImg(test):
+    imageFileName = test
+    filename = imageFileName + '.jpg'
+    print(filename)
+    print(picDir)
+    # return test
+    # TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    return send_from_directory(picDir, filename, as_attachment=True)
+
 
 
 @blue.route('/project/query_batch_projects', methods=['POST'])
@@ -220,4 +240,35 @@ def deleteProject():
     from db_control import controller
     print(request.form)
     projectId = request.form['projectId']
-    return controller.deleteProject(projectId)
+    openid = request.form['openid']
+    return controller.deleteProject(projectId, openid)
+
+
+@blue.route('/project/getPossibleImageFileNames', methods=['POST'])
+def getPossibleImageFileNames():
+    from db_control import controller
+    print(request.form)
+    uploadedChoice = request.form['imageName']
+    uploadedChoice += ".jpg"
+    fileNames = None
+    for root, dirs, files in os.walk(picDir):
+        fileNames = files
+
+    alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+    if uploadedChoice in fileNames:
+        return uploadedChoice
+    else:
+        for alpha in alphas:
+            uploadedChoice = uploadedChoice.split(alpha)[0]
+            for filename in fileNames:
+                if filename.split(alpha)[0] == uploadedChoice:
+                    return filename
+
+    return "None"
+
+
+@blue.route('/project/exitProject', methods=['POST'])
+def exitProject():
+    from db_control import controller
+    openid = request.form['openid']
+    projectId = request.form['projectId']
