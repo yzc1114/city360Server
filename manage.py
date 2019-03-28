@@ -58,8 +58,6 @@ class Project(db.Model):
                  mainProject=False,
                  createTimeStamp="",
                  imageFileName=""):
-                 mainProject=0,
-                 createTimeStamp=""):
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
         self.workersOpenid = workersOpenid
