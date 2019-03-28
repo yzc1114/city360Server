@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <title>城市360</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li>
+      <a href="http://urp360.org/wordpress/">畸零空间定义</a>
+    </li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=11671">改造流程</a>
+    </li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=11680">街道给设计师</a>
+    </li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=5">畸零空间的分类</a>
+    </li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=11485">畸零空间设计导则</a>
+    </li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=11819">设计师给街道</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="http://urp360.org/wordpress/?page_id=11693">已完成案例</a>
+    </li>
+  </ul>
+
+  <!--  -->
+  <ul id="avataractivity" class="dropdown-content dropdown-full-width">
+    <li>
+      <a id="pUsername" style="display: none;"></a>
+    </li>
+    <li class="divider"></li>
+    <label for="">已作为政府机构登录</label>
+    <li>
+      <a href="#!">发布项目</a>
+    </li>
+    <li>
+      <a href="#!">我的项目</a>
+    </li>
+    <li>
+      <a href="#！">我的消息</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="#!">修改头像</a>
+    </li>
+    <li>
+      <a href="#!" onclick="signout()">登出</a>
+    </li>
+  </ul>
+
+  <!-- 顶部导航栏 -->
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container left-align">
+      <ul class="center hide-on-med-and-down">
+        <li style="height: 64px;">
+          <a id="logo-container" href="#" style="width: inherit;height: inherit;">
+            <img src="img/logo.png" alt="" style="height: 80%;margin: 5%;">
+          </a>
+        </li>
+        <li>
+          <a href="http://urp360.org/">首页</a>
+        </li>
+        <li>
+          <a href="">我是街道政府</a>
+        </li>
+        <li>
+          <a href="">我是设计师</a>
+        </li>
+        <li>
+          <a href="#!" class="dropdown-button" data-activates="dropdown1">关于畸零空间</a>
+        </li>
+        <li class="right" >
+          <a id="btnSignup" href="#!" class="btn purple lighten-4" onclick="openSignupscreen()">注册</a>
+        </li>
+        <li class="right">
+          <a id="btnSignin" href="#loginscreen" class="btn btn-flat" >登录</a>
+        </li>
+        <li class="right" style="height: 64px;">
+          <a id="btnNewproject" href="" class="btn purple lighten-4" style="display: none;" >发布项目</a>
+        </li>
+        <li class="right" style="height: 64px;">
+          <a id="liAvatar" href="#!" style="height: 64px;display: none;" class="dropdown-button" data-activates="avataractivity">
+            <i class="material-icons right" style="font-size: 10px;">arrow_drop_down</i>
+            <img id="imgAvatar" src="avatar/default.jpg" alt="" class="avatar" style="border-radius: 50%;margin-top: 7px;margin-bottom: 7px;height: 50px;">
+          </a>
+        </li>
+      </ul>
+
+
+<!-- 侧边栏 -->
+      <ul id="nav-mobile" class="side-nav">
+        <li style="height: 64px;">
+          <a id="logo-container" href="#" style="width: inherit;height: inherit;">
+            <img src="img/logo.png" alt="" style="height: 50px;margin: 7px;">
+          </a>
+          <a id="liAvatarSide" href="#!" style="height: 64px;display: none;" class="dropdown-button" data-activates="avataractivity">
+              <i class="material-icons right" style="font-size: 10px;">arrow_drop_down</i>
+              <img id="imgAvatarSide" src="avatar/default.jpg" alt="" class="avatar" style="border-radius: 50%;margin-top: 7px;margin-bottom: 7px;height: 50px;">
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="http://urp360.org/">
+            <i class="material-icons">home</i>首页</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/">
+            <i class="material-icons">create</i>畸零空间定义</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=11671">
+            <i class="material-icons">compare_arrows</i>改造流程</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=11680">
+            <i class="material-icons">nature_people</i>街道给设计师</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=5">
+            <i class="material-icons">format_list_bulleted</i>畸零空间的分类</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=11485">
+            <i class="material-icons">highlight</i>畸零空间设计导则</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=11819">
+            <i class="material-icons">streetview</i>设计师给街道</a>
+        </li>
+        <li>
+          <a href="http://urp360.org/wordpress/?page_id=11693">
+            <i class="material-icons">done_all</i>已完成案例</a>
+        </li>
+        <li>
+          <a id="btnSignupSide" href="#!" class="btn purple lighten-4" onclick="openSignupscreen()">注册</a>
+        </li>
+        <li>
+          <a id="btnSigninSide" href="#loginscreen" class="btn btn-flat" >登录</a>
+        </li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br>
+        <br>
+        <h1 class="header center purple-text text-lighten-5">城市360</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">提供畸零空间活化全流程服务</h5>
+        </div>
+        <div class="row center">
+          <a href="showall/index.html" id="showall" class="btn-large waves-effect waves-light purple lighten-4">查看已发布的项目</a>
+          <a href="#uploadscreen" id="upload" class="btn-large waves-effect waves-light purple lighten-1" style="background-color: rgba( 0, 0, 0, .2 ) !important;border: white 3px solid">政府发布新的项目</a>
+        </div>
+        <br>
+        <br>
+
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="img/background1.jpg" alt="Unsplashed background img 1">
+    </div>
+  </div>
+
+  <!-- 发布项目modal -->
+  <div id="uploadscreen" class="modal">
+    <div class="modal-content" id="uploadModal">
+      <div class="row">
+        <div class="col s12">
+          <h4 class="header main-color">发布项目</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <p>政府发布新的畸零空间改造项目</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m12">
+          <i class="material-icons prefix">title</i>
+          <input id="name" type="text" class="validate">
+          <label for="name">项目名称*</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="author" type="text" class="validate">
+          <label for="auhtor">上传组织*</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">domain</i>
+          <input id="street" type="text" class="validate">
+          <label for="street">所属街道</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">phone</i>
+          <input id="tel" type="text" class="validate">
+          <label for="tel">联系方式*</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">monetization_on</i>
+          <input id="budget" type="text" class="validate">
+          <label for="budget">预算</label>
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">star</i>
+          <input id="demand" type="text" class="validate">
+          <label for="demand">改造意向*</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">place</i>
+          <input id="address" type="text" class="validate">
+          <label for="address">畸零空间地址(文字)*</label>
+        </div>
+        <div class="col s12">
+          <label for="">在地图上选择畸零空间位置</label>
+
+          <div id="bdmap" style="width: inherit;height: 250px;"></div>
+        </div>
+        <div class="col s12">
+          <input disabled id="coords" type="text" class="validate">
+        </div>
+        <div class="col s12">
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn purple lighten-4">
+                <span>上传附件</span>
+                <form id="uploadForm" enctype="multipart/form-data">
+                  <input id="file" type="file" name="file" multiple>
+                </form>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="上传一个或多个文件">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <a href="#aidesignModal" class="btn purple lighten-4 right" onclick="showaidesign()">下一步</a>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col s12">
+            <i class="material-icons prefix">turned_in</i>
+            <div class="chips chips-placeholder"></div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- 人工智能设计modal -->
+    <div class="modal-content" id="aidesignModal" style="display: none;">
+        <div class="row">
+            <div class="col s12 ">
+                <h2>选择您想要的设计方案</h2>
+            </div>
+        </div>
+        <div class="row"><div class="col s12"><p>使用人工智能设计您想要的畸零空间设计初稿</p></div></div>
+        <div class="divider"></div>
+        <div id="aiSelectFull">
+        <div class="row">
+            <h5>选择畸零空间大小</h5>
+            <label for="chips1">将决定生成的畸零空间设计大小</label>
+            <div class="col s12" id="chips1" style="margin-top: 5px;">
+                <div class="chip" id="11" onclick="javascript: c1 = 1;">大型(50㎡以上)</div>
+                    <div class="chip" id="12" onclick="javascript: c1 = 2;">中型(20~50㎡)</div>
+                    <div class="chip" id="13" onclick="javascript: c1 = 3;">小型(20㎡以下)</div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <h5>选择畸零空间形状</h5>
+            <label for="chips8">将决定畸零空间设计结果图的形状</label>
+            <div class="col s12" id="chips8" style="margin-top: 5px;">
+                <div class="chip" id="81">正方形</div>
+                <div class="chip" id="82">长方形</div>
+                <div class="chip" id="83">线形</div>
+                <div class="chip" id="84">圆形</div>
+                <div class="chip" id="85">半圆形</div>
+
+            </div>
+        </div> -->
+        <div class="row">
+            <h5>选择畸零空间形态</h5>
+            <label for="chips8">将决定畸零空间设计的形态<br>对畸零空间的形态分类不了解？<a href="http://urp360.org/wordpress/?page_id=5#type">点击此处<i class="material-icons" style="font-size: inherit;">open_in_new</i></a>查看我们的畸零空间形态的定义</label>
+            <div class="col s12" id="chips8" style="margin-top: 5px;">
+                <div class="chip" id="81" onclick="javascript: c2 = 1;">线性</div>
+                    <div class="chip" id="82" onclick="javascript: c2 = 2;">散点</div>
+                    <div class="chip" id="83" onclick="javascript: c2 = 3;">团块</div>
+
+            </div>
+        </div>
+        <!-- <div class="row">
+            <h5>选择畸零空间的d/L</h5>
+            <label for="chips10">我也不太清楚这是什么</label>
+            <div class="col s12" id="chips10" style="margin-top: 5px;">
+                <div class="chip" id="101">楼间</div>
+                <div class="chip" id="102">桥体</div>
+                <div class="chip" id="103">开阔地</div>
+            </div>
+        </div> -->
+        <div class="row">
+            <h5>选择畸零空间的属性</h5>
+            <label for="chips9">畸零空间成为畸零空间的原因<br>对畸零空间的形成原因不了解？<a href="http://urp360.org/wordpress/?page_id=5">点击此处<i class="material-icons" style="font-size: inherit;">open_in_new</i></a>查看我们的畸零空间分类</label>
+            <div class="col s12" id="chips9" style="margin-top: 5px;">
+                <div class="chip" id="91" onclick="javascript: c3 = 1;">商业摊地</div>
+                <div class="chip" id="92" onclick="javascript: c3 = 2;">休闲空地</div>
+                <div class="chip" id="93" onclick="javascript: c3 = 3;">街头文化</div>
+                <div class="chip" id="94" onclick="javascript: c3 = 4;">人员逗留</div>
+                <div class="chip" id="95" onclick="javascript: c3 = 5;">废弃空地</div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 for="chips2">选择设计使用年限</h5>
+            <label for="chips2">将决定选取的材料寿命，选取更好的材料的同时也会增加预算。</label>
+            <div class="col s12" id="chips2" style="margin-top: 5px;">
+                <div class="chip" id="21" onclick="javascript: c4 = 1;">两年以下</div>
+                <div class="chip" id="22" onclick="javascript: c4 = 2;">两年到五年</div>
+                <div class="chip" id="23" onclick="javascript: c4 = 3;">五年到十年</div>
+                <div class="chip" id="24" onclick="javascript: c4 = 4">十年以上</div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 for="chips3">选择畸零空间场所</h5>
+            <label for="chips3">将决定畸零空间设计方式</label>
+            <div class="col s12" id="chips3" style="margin-top: 5px;">
+                <div class="chip" id="31" onclick="javascript: c5 = 1;">室内</div>
+                <div class="chip" id="32" onclick="javascript: c5 = 2;">室外</div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 for="chips4">选择畸零空间位置</h5>
+            <label for="chips4">将根据区域选择合适的畸零空间设计风格</label>
+            <br>
+            <div class="col s12" id="chips4" style="margin-top: 5px;">
+                <div class="chip" id="41" onclick="javascript: c6 = '01';">杨浦区</div>
+                    <div class="chip" id="42" onclick="javascript: c6 = '02';">浦东新区</div>
+                    <div class="chip" id="43" onclick="javascript: c6 = '03';">嘉定区</div>
+                    <div class="chip" id="44" onclick="javascript: c6 = '04';">黄浦区</div>
+                    <div class="chip" id="45" onclick="javascript: c6 = '05';">徐汇区</div>
+                    <div class="chip" id="46" onclick="javascript: c6 = '06';">宝山区</div>
+                    <div class="chip" id="47" onclick="javascript: c6 = '07';">奉贤区</div>
+                    <div class="chip" id="48" onclick="javascript: c6 = '08';">静安区</div>
+                    <div class="chip" id="49" onclick="javascript: c6 = '09';">普陀区</div>
+                    <div class="chip" id="410" onclick="javascript: c6 = '10';">虹口区</div>
+                    <div class="chip" id="411" onclick="javascript: c6 = '11';">闵行区</div>
+                    <div class="chip" id="412" onclick="javascript: c6 = '12';">金山区</div>
+                    <div class="chip" id="413" onclick="javascript: c6 = '13';">松江区</div>
+                    <div class="chip" id="414" onclick="javascript: c6 = '14';">青浦区</div>
+                    <div class="chip" id="415" onclick="javascript: c6 = '15';">长宁区</div>
+                    <div class="chip" id="416" onclick="javascript: c6 = '16';">崇明县</div>
+                    <div class="chip" id="417" onclick="javascript: c6 = '17';">其他</div>
+            </div>
+        </div>
+        <div class="row">
+            <h5>选择畸零空间所在环境</h5>
+            <label for="chips5">将决定畸零空间设计风格</label>
+            <div class="col s12" style="margin-top: 5px;">
+                <div class="chip" id="51" onclick="javascript: c7 = 1;">商业圈</div>
+                    <div class="chip" id="52" onclick="javascript: c7 = 2;">居住区</div>
+                    <div class="chip" id="53" onclick="javascript: c7 = 3;">办公区</div>
+                    <div class="chip" id="54" onclick="javascript: c7 = 4;">混合区域</div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <h5>选择大致的预算</h5>
+            <label for="chips6">将决定使用的材料价格</label>
+            <div class="col s12" style="margin-top: 5px;">
+                <div class="chip" id="61">五万元以下</div>
+                <div class="chip" id="62">五万元至十万元</div>
+                <div class="chip" id="63">十万元至二十万元</div>
+                <div class="chip" id="64">二十万元以上</div>
+            </div>
+        </div> -->
+        <div class="row">
+            <h5>选择畸零空间需要的功能（多选）</h5>
+            <label for="chpis7">将决定畸零空间设计的功能</label>
+            <div class="col s12" style="margin-top: 5px;">
+                <div class="chip" id="71" onclick="javascript:if(c8 == 0)c8=1;else c8=0; ">绿化</div>
+                    <div class="chip" id="72" onclick="javascript:if(c9 == 0)c9=1;else c9=0; ">社交</div>
+                    <div class="chip" id="73" onclick="javascript:if(c10 == 0)c10=1;else c10=0; ">健身</div>
+                    <div class="chip" id="74" onclick="javascript:if(c11 == 0)c11=1;else c11=0; ">文化</div>
+                    <div class="chip" id="75" onclick="javascript:if(c12 == 0)c12=1;else c12=0; ">自由市场</div>
+                    <div class="chip" id="76" onclick="javascript:if(c13 == 0)c13=1;else c13=0; ">艺术</div>
+                    <div class="chip" id="77" onclick="javascript:if(c14 == 0)c14=1;else c14=0; ">农园</div>
+                    <div class="chip" id="77" onclick="javascript:if(c15 == 0)c15=1;else c15=0; ">互动</div>
+                    <div class="chip" id="78" onclick="javascript:if(c16 == 0)c16=1;else c16=0; ">小商店</div>
+                    <div class="chip" id="79" onclick="javascript:if(c17 == 0)c17=1;else c17=0; ">休息</div>
+            </div>
+        </div>
+        </div>
+        <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+        <div class="row">
+            <div class="col s12">
+                <a href="#designModal" class="btn purple lighten-4 right" style="margin-right: 15px;" onclick="showdesign()">生成设计方案</a>
+                <a href="#uploadModal" class="btn purple lighten-4" onclick="showupload()">上一步</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- 发布方案modal -->
+    <div class="modal-content" id="designModal" style="display: none;">
+        <div class="row">
+            <div class="col s12 ">
+                <h2 style="color: gainsboro;">生成的设计方案</h2>
+                <h4 id="ai_name"></h4>
+            </div>
+        </div>
+        <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+        <div class="row">
+            <div class="col s12">
+                <p id="ai_detail"></p>
+            </div>
+            <div class="col s12">
+                <img id="ai_img" src="img/loading.gif" alt="" style="width: 100%;">
+            </div>
+            <div class="col s12">
+                <label for="" id="ai_label"></label>
+            </div>
+            <div class="col s12">
+                <a href="#designModal" class="btn purple lighten-4 right" style="margin-right: 15px;" onclick="publish()">采用该方案并发布</a>
+                <a href="#uploadModal" class="btn purple lighten-4 rights" onclick="showaidesign()">上一步</a>
+            </div>
+        </div>
+        <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+        <div class="row">
+            <div class="col s12">
+                    <h3 style="    font-weight: 600;color: gray;font-size: 2rem;">其他的相似案例</h3>
+                    <div class="row" style="display: flex;justify-content: center;">
+                        <div class="card z-depth-0 col s12 m4">
+                            <div class="card-image">
+                                    <img id="ai_img2" src="img/loading.gif">
+                                    <span class="card-title"></span>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="card-title" id="ai_name2" style="line-height: inherit !important;font-size: 16px !important;margin:0px;height: 50px;overflow: hidden;"></h5>
+                                    <p id="ai_p2" style="font-size: 10px !important;line-height: 14px !important;color: gray !important;height: 60px;"></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" id="ai_btn2">详情</a>
+                                </div>
+                        </div>
+                        <div class="card z-depth-0 col s12 m4">
+                            <div class="card-image">
+                                    <img id="ai_img3" src="img/loading.gif">
+                                    <span class="card-title"></span>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="card-title" id="ai_name3"  style="line-height: inherit !important;font-size: 16px !important;margin:0px;height: 50px;overflow: hidden;"></h5>
+                                    <p id="ai_p3" style="font-size: 10px !important;line-height: 14px !important;color: gray !important;height: 60px;"></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" id="ai_btn3">详情</a>
+                                </div>
+                        </div>
+                        <div class="card z-depth-0 col s12 m4">
+                            <div class="card-image">
+                                    <img id="ai_img4" src="img/loading.gif">
+                                    <span class="card-title"></span>
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="card-title" id="ai_name4"  style="line-height: inherit !important;font-size: 16px !important;margin:0px;height: 50px;overflow: hidden;"></h5>
+                                    <p id="ai_p4" style="font-size: 10px !important;line-height: 14px !important;color: gray !important;height: 60px;"></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" id="ai_btn4">详情</a>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+        <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+      </div>
+  </div>
+
+  <div class="modal" id="loginscreen" style="max-width: 400px;">
+    <div class="modal-content" >
+      <div class="row">
+        <div class="col s12 center">
+          <h3 style="font-weight: 200;">登录</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 ">
+          <i class="material-icons prefix">person</i>
+          <input id="email_login" type="text" class="validate">
+          <label for="email_login">邮箱</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 ">
+          <i class="material-icons prefix">lock</i>
+          <input id="password_login" type="password" class="validate">
+          <label for="password_login">密码</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <a href="#!" class="btn btn-large btn-block purple lighten-4" onclick="signin()">登录</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="infoscreen" style="width: 200px;">
+    <div class="modal-content">
+      <p id="infotext">上传成功!</p>
+      <a href="#!" class="btn purple lighten-4 right" style="margin-bottom: 20px;" onclick="closeAllModal()">确定</a>
+    </div>
+  </div>
+
+  <div class="modal" id="signupscreen" style="max-width: 600px;">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12 center ">
+            <h3 style="font-weight: 200;">注册新用户</h3>
+          </div>
+          <div class="input-field  col s12">
+              <i class="material-icons prefix">person</i>
+              <input id="username" type="text" class="validate">
+              <label for="username">用户名</label>
+          </div>
+          <div class="input-field col s12">
+              <i class="material-icons prefix">mail</i>
+              <input id="mailaddr" type="email" class="validate">
+              <label for="mailaddr">邮箱</label>
+          </div>
+          <div class="input-field col s12">
+              <i class="material-icons prefix">lock</i>
+              <input id="password" type="password" class="validate">
+              <label for="password">密码</label>
+          </div>
+          <div class="input-field col s12">
+              <i class="material-icons prefix">repeat</i>
+              <input id="password-re" type="password" class="validate">
+              <label for="password-re">重复密码</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">phone</i>
+            <input id="telnum" type="text" class="validate">
+            <label for="telnum">您的联系方式</label>
+        </div>
+          <div class="col s12">
+            <label for="tabs">请选择您的身份</label>
+          </div>
+          <div class="col s12">
+            <ul class="tabs left-align" style="background: transparent;">
+              <li class="tab col s3"><a href="#signupDesigner" class="">设计师</a></li>
+              <li class="tab col s3"><a class="" href="#signupGov">政府机构</a></li>
+            </ul>
+          </div>
+          <div id="signupDesigner" class="col s12">
+            <div class="row">
+              <div class="col s12" style="display: flex;align-items: center;height: 64.5;margin-top:14.5px;">
+                  <span>您的职业：</span>
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-button btn btn-flat' href='#' data-activates='jobselect' id="job">职业设计师</a>
+
+                  <!-- Dropdown Structure -->
+                  <ul id='jobselect' class='dropdown-content'>
+                    <li><a href="#!" onclick="javascript:$('#job')[0].innerHTML='职业设计师'">职业设计师</a></li>
+                    <li><a href="#!" onclick="javascript:$('#job')[0].innerHTML='兼职设计师'">兼职设计师</a></li>
+                    <li><a href="#!" onclick="javascript:$('#job')[0].innerHTML='学生'">学生</a></li>
+                    <li><a href="#!" onclick="javascript:$('#job')[0].innerHTML='其他'">其他</a></li>
+                  </ul>
+              </div>
+
+            </div>
+
+          </div>
+          <div id="signupGov" class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_balance</i>
+                    <input id="govname" type="text" class="validate">
+                    <label for="govname">您工作的机构</label>
+                </div>
+
+
+              </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              <a href="#!" class="btn btn-large btn-block purple lighten-4" onclick="newuser()">注册</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+              <i class="material-icons">group</i>
+            </h2>
+            <h5 class="center">“城市360”是什么？</h5>
+
+            <p class="light">城市空间中，楼与楼之间、社区与社区之间，不同的形式种类作用的建筑群中间会不可避免地产生一些空间上的浪费。城市空间结构中相对不规则、零散的、细碎的、畸形的空间，被称为畸零空间。
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+              <i class="material-icons">settings</i>
+            </h2>
+            <h5 class="center">“城市360”之价值？</h5>
+
+            <p class="light">助力政府管理：城市空间智慧管理，化“被动管理”为“主动服务”。
+              <br> 唤醒社会认知：“互联网+更新”模式多键互联，加强人文体验。
+              <br> 推进产教结合：“互联网+公益”理念整合资源，提供公益平台。
+              <br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+              <i class="material-icons">flash_on</i>
+            </h2>
+            <h5 class="center">“城市360”的优势？</h5>
+
+            <p class="light">快速发布、准确定位。
+              <br> 个性化定制，模块化定制。
+              <br> 专家认证畸零空间设计导则。
+
+              <br> 全透明公开供给方双向选择。
+              <br> 超过30个知名专业设计师工作室入驻。
+
+              <br> 超过10个街道政府达成初步合作意向。
+              <br> 多种多样产品及服务可供遴选。
+
+              <br> 无抽成零利润公益性项目平台。
+              <br>
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">让畸零空间成为在城市公共空间之中，使人们交谈、娱乐、休憩的场所</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="img/background2.jpg" alt="Unsplashed background img 2">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3>
+            <i class="mdi-content-send brown-text"></i>
+          </h3>
+          <h4>什么是畸零空间</h4>
+          <p class="center-align light">城市空间中，楼与楼之间、社区与社区之间，不同的形式种类作用的建筑群中间会不可避免地产生一些空间上的浪费。城市空间结构中相对不规则、零散的、细碎的、畸形的空间，被称为畸零空间。</p>
+
+          <br>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="col s12">
+              <span class="center grey-text">典型案例</span>
+              <h5>杨浦区创智农园</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m5" style="display: flex;flex-direction: column;align-items: center;justify-content: center;margin-left: 10px;">
+              <div class="imgbox z-depth-3" style="max-width: 350px;height: 200px;overflow: hidden;">
+                <img src="img/创智农园before.png" alt="" class="z-depth-3" style="width: 350px;">
+              </div>
+              <h5 style="margin-top: 10px;">改造前</h5>
+              <p style="max-width: 250px;" class="center">城市开发中的典型隙地，因地下有重要市政管线通过，未得到充分利用，成为临时工棚和闲置地。</p>
+            </div>
+            <div class="col s12 m5 push-m2  " style="display: flex;flex-direction: column;align-items: center;justify-content:center;margin-right: 10px;">
+              <div class="imgbox z-depth-3" style="max-width: 350px;height: 200px;overflow: hidden;">
+                <img src="img/创智农园after.png" alt="" class="z-depth-3" style="width: 350px;">
+              </div>
+              <h5 style="margin-top: 10px;">改造后</h5>
+              <p style="max-width: 250px;" class="center">改造为创智农园，拥有设施服务区、公共活动区、朴门菜园区、一米菜园区、互动园艺区等区域，菜园由社区居民自己维护，平常还会举办露天电影等社区活动。</p>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="divider"></div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col s12">
+                <a href="http://urp360.org/wordpress/" class="center btn  purple lighten-4">了解更多</a>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">连接政府与设计师，提供畸零空间设计导则与装配式设计方案简化设计成本</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="img/background2.jpg" alt="Unsplashed background img 2">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3>
+            <i class="mdi-content-send brown-text"></i>
+          </h3>
+          <h4>城市360是什么</h4>
+          <p class="center-align light">城市360是一个积极致力于对接城市空间改造诉求的项目团队
+            <br>收集城市社区的畸零空间，线性连接供给需求方、促成改造方案的组织策划与实施、优化畸零空间、趋向性提供畸零空间再生力。
+            <br>创新畸零空间设计导则，规范化畸零空间设计，减小成本。
+          </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <div class="s12 col"><h5 class="center">畸零空间的设计导则</h5></div>
+      </div>
+      <div class="row">
+        <div class="s12 m3 col" style="background-image: url('img/outline-safe.jpg');background-position: right bottom;background-repeat: no-repeat;">
+          <ul class="collection with-header" >
+              <li class="collection-header" style="background-color: transparent !important;"><h5>安全</h5></li>
+              <li class="collection-item" style="background-color: transparent !important;">人车分离</li>
+              <li class="collection-item" style="background-color: transparent !important;">步行有道</li>
+              <li class="collection-item" style="background-color: transparent !important;">结构耐用</li>
+              <li class="collection-item" style="background-color: transparent !important;">禁停单车</li>
+              <li class="collection-item" style="background-color: transparent !important;">安全易达</li>
+              <li class="collection-item" style="background-color: transparent !important;">设施可靠</li>
+            </ul>
+        </div>
+        <div class="s12 m3 col" style="background-image: url('img/outline-green.jpg');background-position: right bottom;background-repeat: no-repeat;">
+          <ul class="collection with-header" >
+              <li class="collection-header" style="background-color: transparent !important;"><h5>绿色</h5></li>
+              <li class="collection-item" style="background-color: transparent !important;">资源集约</li>
+              <li class="collection-item" style="background-color: transparent !important;">绿色出行</li>
+              <li class="collection-item" style="background-color: transparent !important;">生态种植</li>
+              <li class="collection-item" style="background-color: transparent !important;">绿色技术</li>
+              <li class="collection-item" style="background-color: transparent !important;">渗水地面</li>
+              <li class="collection-item" style="background-color: transparent !important;">能源利用</li>
+            </ul>
+        </div>
+        <div class="s12 m3 col" style="background-image: url('img/outline-vitality.jpg');background-position: right bottom;background-repeat: no-repeat;">
+          <ul class="collection with-header" >
+              <li class="collection-header" style="background-color: transparent !important;"><h5>活力</h5></li>
+              <li class="collection-item" style="background-color: transparent !important;">功能复合</li>
+              <li class="collection-item" style="background-color: transparent !important;">活动舒适</li>
+              <li class="collection-item" style="background-color: transparent !important;">空间宜人</li>
+              <li class="collection-item" style="background-color: transparent !important;">视觉丰富</li>
+              <li class="collection-item" style="background-color: transparent !important;">风貌塑造</li>
+              <li class="collection-item" style="background-color: transparent !important;">历史传承</li>
+            </ul>
+        </div>
+        <div class="s12 m3 col" style="background-image: url('img/outline-intel.jpg');background-position: right bottom;background-repeat: no-repeat;">
+          <ul class="collection with-header" >
+              <li class="collection-header" style="background-color: transparent !important;"><h5>智慧</h5></li>
+              <li class="collection-item" style="background-color: transparent !important;">设施整合</li>
+              <li class="collection-item" style="background-color: transparent !important;">语音辅助</li>
+              <li class="collection-item" style="background-color: transparent !important;">智能监控</li>
+              <li class="collection-item" style="background-color: transparent !important;">交互便利</li>
+              <li class="collection-item" style="background-color: transparent !important;">环境治理</li>
+              <li class="collection-item" style="background-color: transparent !important;">掌上APP</li>
+            </ul>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col s12 center"><a href="http://urp360.org/wordpress/?page_id=11485" class="btn purple lighten-4">了解更多</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">根据畸零空间不同的环境和形态设计不同的解决方案</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="img/background3.png" alt="Unsplashed background img 3">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3>
+            <i class="mdi-content-send brown-text"></i>
+          </h3>
+          <h4>云端案例库</h4>
+          <p>提供已完成的畸零空间改造案例参考。</p>
+        </div>
+      </div>
+      <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+      <div class="row">
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="img/20-400x293.jpg">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <span class="card-title">同济新村院落空间</span>
+              <p>同济新村老旧院落型住宅改造</p>
+            </div>
+            <div class="card-action">
+              <a href="http://urp360.org/wordpress/?p=11806">详情</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="img/19.jpg">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <span class="card-title">四平体育弄</span>
+              <p>社区公共空间改造设计，重新激发社区活力</p>
+            </div>
+            <div class="card-action">
+              <a href="http://urp360.org/wordpress/?p=11798">详情</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="img/13.jpg">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <span class="card-title">创智农园</span>
+              <p>将建筑废料堆放处改造成社区花园</p>
+            </div>
+            <div class="card-action">
+              <a href="http://urp360.org/wordpress/?p=11790">详情</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <a href="http://urp360.org/wordpress/?page_id=11693" class="btn center purple lighten-4">查看云端案例库</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">借助人工智能，任何人都可以设计属于自己的畸零空间</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="img/ai.png" alt="Unsplashed background img 3">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section center">
+      <div class="row">
+        <div class="col s12 center">
+          <h3>
+            <i class="mdi-content-send brown-text"></i>
+          </h3>
+          <h4>人工智能设计方案</h4>
+          <p>人工智能方法自动设计甲方想要的方案，设计师可以直接根据人工智能设计出的方案设计，提高设计效率。</p>
+        </div>
+      </div>
+      <div class="row"><div class="col s12"><div class="divider"></div></div></div>
+      <div class="row">
+        <div class="col s12">
+          <h5>设计您自己的畸零空间改造方案</h5>
+        </div>
+      </div>
+      <div id="aiSelect">
+        <div class="row">
+          <h6>尺寸</h6>
+          <div class="col s12" id="chips1" style="margin-top: 5px;">
+              <div class="chip" id="11" >8M×8M</div>
+              <div class="chip" id="12" >7M×7M</div>
+              <div class="chip"  >6M×6M</div>
+              <div class="chip"  >12M×6M</div>
+              <div class="chip"  >9M×6M</div>
+              <div class="chip"  >8M×4M</div>
+          </div>
+        </div>
+        <div class="row">
+          <h6>绿地比例</h6>
+          <div class="col s12" style="margin-top: 5px;">
+              <div class="chip" id="51">低于30%</div>
+              <div class="chip" id="52">30%-70%</div>
+              <div class="chip" id="53">大于70%</div>
+          </div>
+        </div>
+        <div class="row">
+          <h6>功能</h6>
+
+          <div class="col s12" style="margin-top: 5px;">
+              <div class="chip" id="71">休憩为主</div>
+              <div class="chip" id="72">活动为主</div>
+              <div class="chip" id="73">景观为主</div>
+          </div>
+        </div>
+      </div>
+      <div class="row"><div class="col s12 center"><a href="childpage/aidesign.html" class="btn btn-flat"><i class="material-icons" style="font-size: inherit;">keyboard_arrow_down</i>查看全部选项</a></div></div>
+      <div class="row"><div class="col s12 center"><a href="childpage/aidesign.html" class="btn purple lighten-4">生成我的设计方案</a></div></div>
+
+    </div>
+  </div>
+
+
+
+
+  <footer class="page-footer purple lighten-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">关于我们</h5>
+          <p class="grey-text text-lighten-4">city360项目组</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">联系我们</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#!">misakaxindex@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by
+        <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=33X0NsFGdzK75bVRULnf3zGt4Os450GW"></script>
+  <script src="js/sha1.js"></script>
+  <script src="js/tool.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/data-ajax.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>人工智能设计 展示页</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        .img_infos img{border:solid 1px #ccc; margin: 2px;}
+        .chipf {
+            display: inline-block;
+            height: 32px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 32px;
+            padding: 0 12px;
+            border-radius: 16px;
+            background-color: #e4e4e4;
+            margin-bottom: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container left-align" style="overflow: hidden;">
+            <ul class="center hide-on-med-and-down">
+                <li style="height: 64px;">
+                    <a id="logo-container" href="#" style="width: inherit;height: inherit;">
+                        <img src="../img/logo.png" alt="" style="height: 80%;margin: 5%;">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/">首页</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/">畸零空间定义</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11671">改造流程</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11680">街道给设计师</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=5">畸零空间的分类</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11485">畸零空间设计导则</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11819">设计师给街道</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11693">已完成案例</a>
+                </li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li style="height: 64px;">
+                    <a id="logo-container" href="#" style="width: inherit;height: inherit;">
+                        <img src="../img/logo.png" alt="" style="height: 80%;margin: 5%;">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/">
+                        <i class="material-icons">home</i>首页</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/">
+                        <i class="material-icons">create</i>畸零空间定义</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11671">
+                        <i class="material-icons">compare_arrows</i>改造流程</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11680">
+                        <i class="material-icons">nature_people</i>街道给设计师</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=5">
+                        <i class="material-icons">format_list_bulleted</i>畸零空间的分类</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11485">
+                        <i class="material-icons">highlight</i>畸零空间设计导则</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11819">
+                        <i class="material-icons">streetview</i>设计师给街道</a>
+                </li>
+                <li>
+                    <a href="http://2.rho.im/city360/wordpress/?page_id=11693">
+                        <i class="material-icons">done_all</i>已完成案例</a>
+                </li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+    </nav>
+    <div class="row" style="height: 50px;"></div>
+    <div class="row">
+        <div class="col s12 m8 centered center z-depth-2 push-m2">
+            <div class="row">
+                <div class="col s12 ">
+                    <h2>选择您想要的设计方案</h2>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                <h5>尺寸</h5>
+                <div class="col s12" id="chips1">
+                    <input type="hidden" class="hidden_info" id="A" value="0"/>
+                    <div class="chip size" id="1" >8M×8M</div>
+                    <div class="chip size" id="2" data-list="1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1">7M×7M</div>
+                    <div class="chip size" id="3" data-list="0,1,1,0,1,0,0,0,0,0,0,0,0,0,1,1">6M×6M</div>
+                    <div class="chip" id="4" >12M×6M</div>
+                    <div class="chip"  id="5">9M×6M</div>
+                    <div class="chip"  id="6" >8M×4M</div>
+                </div>
+            </div>
+            <div class="row">
+                <h5>围合</h5>
+                <div class="col s12" id="chips8">
+                    <input type="hidden" class="hidden_info"  id="B" value="0"/>
+                    <div class="chip" id="1">一面围合</div>
+                    <div class="chip" id="2">两面围合（对侧）</div>
+                    <div class="chip" id="3">两面围合斜侧</div>
+                    <div class="chip" id="4">三面围合</div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <h5>绿地比例</h5>
+
+                <div class="col s12" id="chips8">
+                    <input type="hidden" class="hidden_info"  id="C" value="0"/>
+                    <div class="chip form" id="1" data-list='1,1,1,0,1,0,1,0,0,1,1,0,1,1,0,0'>低于30%</div>
+                    <div class="chip form" id="2" data-list="0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0">30%-70%</div>
+                    <div class="chip form" id="3" data-list="1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1">大于70%</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <h5>功能</h5>
+
+                <div class="col s12" id="chips10">
+                    <input type="hidden" class="hidden_info" id="D" value="0"/>
+                    <div class="chip" id="1">休憩为主</div>
+                    <div class="chip" id="2">活动为主</div>
+                    <div class="chip" id="3">景观为主</div>
+                </div>
+            </div>
+            <div class="row">
+                <h5>风格</h5>
+
+                <div class="col s12" id="chips9">
+                    <input type="hidden" class="hidden_info"  id="E" value="0"/>
+                    <div class="chip" id="1">古典</div>
+                    <div class="chip" id="2">现代</div>
+                </div>
+            </div>
+            <div class="row">
+                <h5 for="chips2">景观要素</h5>
+
+                <div class="col s12" id="chips2">
+                    <input type="hidden" class="hidden_info" id="F" value="0"/>
+                    <div class="chipf" id="1" >水池</div><input type="hidden" id="F1" value="0"/>
+                    <div class="chipf" id="2" >雕塑</div><input type="hidden" id="F2" value="0"/>
+                    <div class="chipf" id="3" >凉亭</div><input type="hidden" id="F3" value="0"/>
+                    <div class="chipf" id="4" >十年以上</div><input type="hidden" id="F4" value="0"/>
+                </div>
+            </div>
+            <div class="row">
+                <h5 for="chips3">座椅数量</h5>
+
+                <div class="col s12" id="chips3">
+                    <input type="hidden" class="hidden_info"  id="G" value="0"/>
+                    <div class="chip" id="1" >低于5个</div>
+                    <div class="chip" id="2" >5-10个</div>
+                    <div class="chip" id="3" >10个以上</div>
+                </div>
+            </div>
+            <div class="row">
+                <h5 for="chips4">是否需要顶棚</h5>
+
+                <br>
+                <div class="col s12 m8 push-m2" id="chips4">
+                    <input type="hidden" class="hidden_info" id="H" value="0"/>
+                    <div class="chip" id="1">需要</div>
+                    <div class="chip" id="2">不需要</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <a href="javascript:void(0);" class="btn btn-large btn-block purple result lighten-4">生成设计方案</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m8 push-m2 center z-depth-2">
+            <div class="row">
+                <div class="col s12">
+                    <h2>生成的设计方案</h2>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col s12">
+                    <img src="img/aitest.jpg" alt="" style="width: 100%;">
+                </div>
+                <div class="col s12 m8 push-m2" style="display:none;" id="show">
+                    <p>以下是由平台为您设计的方案</p>
+                </div>
+                <div class="img_infos" style="clear: both;display:none;" id="show1">
+                    <img src='' width='280' height='280' id="pic1" /><br>
+                    <p>方案一</p>
+                    <img src='' width='280' height='280' id="pic2" /><br>
+<p>方案二</p>
+                </div>
+                <div class="col s12">
+                    <a href="http://2.rho.im/city360/" class="btn btn-large btn-block purple lighten-4">采用该方案并发布</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+      $(".chip").click(function(){
+        for(item=0;item < this.parentNode.children.length;item++){
+          //  console.log(this.parentNode.children)
+            this.parentNode.children[item].style.backgroundColor = "#e4e4e4";
+            this.parentNode.children[item].style.color = "rgba(0, 0, 0, 0.6)";
+        }
+        if(this.style.backgroundColor != "teal"){
+            this.style.backgroundColor = "teal";
+            this.style.color = "white";
+            $(this).parent().find('.chip').removeClass('selected');  //清除其他选择
+            $(this).addClass('selected');  //选择
+            $(this).parent().find('.hidden_info').val(this.id);     //讲已选择的指标标记为1
+        }else{
+            $(this).removeClass('selected');  //重新选择
+            this.style.backgroundColor = "#e4e4e4";
+            this.style.color = "rgba(0, 0, 0, 0.6)";
+        }
+      });
+
+//新增多选
+      $(".chipf").click(function(){
+          if(this.style.backgroundColor != "teal"){
+              this.style.backgroundColor = "teal";
+              this.style.color = "white";
+              $("#F"+this.id).val(1);
+              $("#F").val(1);
+           //   $(this).removeClass('selected');  //清除其他选择
+            //  $(this).addClass('selected');  //选择
+            //  $(this).parent().find('.hidden_info').val(this.id);     //讲已选择的指标标记为1
+          }else{
+           //   $(this).removeClass('selected');  //重新选择
+              this.style.backgroundColor = "#e4e4e4";
+              this.style.color = "rgba(0, 0, 0, 0.6)";
+              $("#F"+this.id).val(0);
+              if($("#F1").val()==0 && $("#F2").val()==0  && $("#F3").val()==0 && $("#F4").val()==0){
+                $("#F").val(0);
+              }
+          }
+      });
+
+
+      //生成设计方案
+      $(".result").click(function(){
+        var post=1;
+          $("#show").fadeIn(1000);
+          //判断各项指标是否已经选择
+          if($("#F").val() == 0){ alert("请选择：景观要素");post=0;return false; }
+          $(".hidden_info").each(function(){
+              if($(this).val() == 0){   //如果没有选择，则弹框提示
+                  alert("请选择："+$(this).parent().parent().find('h5').text());
+                  post=0;
+                  return false;        //停止执行
+              }
+
+          });
+
+          if(post==1){
+                  var  A=$("#A").val();
+                  var  B=$("#B").val();
+                  var  C=$("#C").val();
+                  var  D=$("#D").val();
+                  var  E=$("#E").val();
+                  var  F="F";
+                  if($("#F1").val()==1){F+="1"};
+                  if($("#F2").val()==1){F+="2"};
+                  if($("#F3").val()==1){F+="3"};
+                  if($("#F4").val()==1){F+="4"};
+                  var  G=$("#G").val();
+                  var  H=$("#H").val();
+                  $.post("check.php", {A:A,B:B,C:C,D:D,E:E,F:F,G:G,H:H}, function(data) {
+                      //返回的code  0失败  1成功
+                      if (data.code == "0") {
+                            alert("请求失败")
+                      } else if (data.code == "1") {
+                             //alert("请求失败")
+                           $("#show,#show1").show();
+                           $("#pic1").attr('src',"pic/"+data.pic[0].pic+".jpg"); 
+                           $("#pic2").attr('src',"pic/"+data.pic[1].pic+".jpg"); 
+                      }
+                  }, 'json'); 
+
+
+}
+
+
+      });
+
+</script>
+</html>
