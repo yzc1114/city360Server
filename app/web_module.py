@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Blueprint
 import json
 from flask import request
@@ -23,6 +24,7 @@ def check_pic():
     G = request.form['G']
     H = request.form['H']
     requirement_str = 'A'+A+'B'+B+'C'+C+'D'+D+'E'+E+F+'G'+G+'H'+H
+    requirement_str = requirement_str.encode('utf-8')
     print(requirement_str)
     if (A == "" or B == "" or C == "" or D == "" or E == "" or F == ""or G == "" 
         or H == "" ):
@@ -33,6 +35,8 @@ def check_pic():
         pic_list = list(map(lambda x: x.split('.')[0], 
             os.listdir(os.getcwd() + '/pic')))
         print(pic_list)
+        for i in range(len(pic_list)):
+            pic_list[i] = pic_list[i].encode('utf-8')
 
         distance_list = list(zip(pic_list, list(map(lambda x: 
             Levenshtein.distance(requirement_str, x), pic_list))))

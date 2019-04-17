@@ -478,3 +478,799 @@ unable to load app 0 (mountpoint='') (callable not found or import error)
 SyntaxError: invalid syntax
 unable to load app 0 (mountpoint='') (callable not found or import error)
 --- no python application found, check your startup logs for errors ---
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Mon Mar 25 14:16:27 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1429750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+  File "manage.py", line 62
+    createTimeStamp=""):
+                      ^
+SyntaxError: invalid syntax
+failed to parse file manage.py
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27028)
+spawned uWSGI worker 1 (pid: 27029, cores: 10)
+spawned uWSGI worker 2 (pid: 27030, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+  File "./manage.py", line 62
+    createTimeStamp=""):
+                      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+  File "./manage.py", line 62
+    createTimeStamp=""):
+                      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+  File "./manage.py", line 62
+    createTimeStamp=""):
+                      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+  File "./manage.py", line 62
+    createTimeStamp=""):
+                      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Mon Mar 25 14:18:28 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1218750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1218750 pid: 27228 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27228)
+spawned uWSGI worker 1 (pid: 27231, cores: 10)
+spawned uWSGI worker 2 (pid: 27232, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 97, in newProject
+    mainProject = False if 'false' == mainProject else True
+UnboundLocalError: local variable 'mainProject' referenced before assignment
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Mon Mar 25 14:23:26 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x20f1750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x20f1750 pid: 27688 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27688)
+spawned uWSGI worker 1 (pid: 27690, cores: 10)
+spawned uWSGI worker 2 (pid: 27691, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Thu Mar 28 14:39:52 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1a86750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1a86750 pid: 23135 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 23135)
+spawned uWSGI worker 1 (pid: 23137, cores: 10)
+spawned uWSGI worker 2 (pid: 23138, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 13:59:46 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1dfe750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+Traceback (most recent call last):
+  File "manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 12170)
+spawned uWSGI worker 1 (pid: 12172, cores: 10)
+spawned uWSGI worker 2 (pid: 12173, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+Traceback (most recent call last):
+  File "./manage.py", line 2, in <module>
+    from utils import create_app
+  File "./utils/__init__.py", line 3, in <module>
+    from app.web_module import web
+  File "./app/web_module.py", line 30
+SyntaxError: Non-ASCII character '\xe5' in file ./app/web_module.py on line 30, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+unable to load app 0 (mountpoint='') (callable not found or import error)
+--- no python application found, check your startup logs for errors ---
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 14:03:15 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1e13750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1e13750 pid: 12482 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 12482)
+spawned uWSGI worker 1 (pid: 12484, cores: 10)
+spawned uWSGI worker 2 (pid: 12485, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 261, in getPossibleImageFileNames
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+  File "./app/views.py", line 261, in <lambda>
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+NameError: global name 'Levenshtein' is not defined
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 14:07:26 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1cad750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1cad750 pid: 12862 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 12862)
+spawned uWSGI worker 1 (pid: 12864, cores: 10)
+spawned uWSGI worker 2 (pid: 12865, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/web_module.py", line 39, in check_pic
+    Levenshtein.distance(requirement_str, x), pic_list))))
+  File "./app/web_module.py", line 39, in <lambda>
+    Levenshtein.distance(requirement_str, x), pic_list))))
+TypeError: distance expected two Strings or two Unicodes
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 262, in getPossibleImageFileNames
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+  File "./app/views.py", line 262, in <lambda>
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+TypeError: distance expected two Strings or two Unicodes
+SIGINT/SIGQUIT received...killing workers...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 14:20:05 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1028750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1028750 pid: 13926 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13926)
+spawned uWSGI worker 1 (pid: 13928, cores: 10)
+spawned uWSGI worker 2 (pid: 13929, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/views.py", line 264, in getPossibleImageFileNames
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+  File "./app/views.py", line 264, in <lambda>
+    Levenshtein.distance(uploadedChoice, x), pic_list))))
+TypeError: distance expected two Strings or two Unicodes
+SIGINT/SIGQUIT received...killing workers...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 14:26:25 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2664750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2664750 pid: 14482 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14482)
+spawned uWSGI worker 1 (pid: 14484, cores: 10)
+spawned uWSGI worker 2 (pid: 14485, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/web_module.py", line 39, in check_pic
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+  File "./app/web_module.py", line 39, in <lambda>
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+TypeError: distance expected two Strings or two Unicodes
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/web_module.py", line 39, in check_pic
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+  File "./app/web_module.py", line 39, in <lambda>
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+TypeError: distance expected two Strings or two Unicodes
+Traceback (most recent call last):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./app/web_module.py", line 39, in check_pic
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+  File "./app/web_module.py", line 39, in <lambda>
+    distance_list = list(zip(pic_list, list(map(lambda x: 
+TypeError: distance expected two Strings or two Unicodes
+SIGINT/SIGQUIT received...killing workers...
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1668, in shutdown
+    h.flush()
+  File "/usr/lib/python2.7/logging/__init__.py", line 844, in flush
+    if self.stream and hasattr(self.stream, "flush"):
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 328, in __bool__
+    return bool(self._get_current_object())
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/home/ubuntu/city360Server/venv/lib/python2.7/site-packages/flask/logging.py", line 30, in wsgi_errors_stream
+    return request.environ['wsgi.errors'] if request else sys.stderr
+KeyError: 'wsgi.errors'
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 15:24:38 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2248750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2248750 pid: 19452 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 19452)
+spawned uWSGI worker 1 (pid: 19454, cores: 10)
+spawned uWSGI worker 2 (pid: 19455, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 21:04:54 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x236c750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x236c750 pid: 15216 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 15216)
+spawned uWSGI worker 1 (pid: 15218, cores: 10)
+spawned uWSGI worker 2 (pid: 15219, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from /home/ubuntu/city360Server/uwsgi.ini
+*** Starting uWSGI 2.0.12-debian (64bit) on [Fri Mar 29 21:16:49 2019] ***
+compiled with version: 5.4.0 20160609 on 28 September 2018 15:49:44
+os: Linux-4.4.0-130-generic #156-Ubuntu SMP Thu Jun 14 08:53:28 UTC 2018
+nodename: VM-0-10-ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /etc
+detected binary path: /usr/bin/uwsgi-core
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/city360Server
+your processes number limit is 7332
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:5000 fd 3
+Python version: 2.7.12 (default, Nov 12 2018, 14:36:49)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x139e750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 496512 bytes (484 KB) for 20 cores
+*** Operational MODE: preforking+threaded ***
+added /home/ubuntu/city360Server/venv/lib/python2.7/site-packages/ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x139e750 pid: 16248 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 16248)
+spawned uWSGI worker 1 (pid: 16252, cores: 10)
+spawned uWSGI worker 2 (pid: 16253, cores: 10)
+*** Stats server enabled on 127.0.0.1:9191 fd: 11 ***

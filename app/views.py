@@ -5,6 +5,7 @@ from flask import send_from_directory
 import os
 import shutil
 import json
+import Levenshtein
 
 blue = Blueprint('first', __name__)
 
@@ -94,12 +95,9 @@ def newProject():
     projectName = request.form['projectName']
     creatorOpenid = request.form['creatorOpenid']
     createTimeStamp = request.form['createTimeStamp']
+    mainProject = request.form['mainProject']
     mainProject = False if 'false' == mainProject else True
     imageFileName = request.form['imageFileName']
-    if mainProject == "true":
-        mainProject = 1
-    else:
-        mainProject = 0
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
                                          workersOpenid="",
@@ -256,22 +254,34 @@ def getPossibleImageFileNames():
     from db_control import controller
     print(request.form)
     uploadedChoice = request.form['imageName']
-    uploadedChoice += ".jpg"
+    uploadedChoice = uploadedChoice.encode('utf-8')
     fileNames = None
-    for root, dirs, files in os.walk(picDir):
-        fileNames = files
+    
+    pic_list = list(map(lambda x : x.split('.')[0],
+                        os.listdir(picDir)))
+    print(pic_list)
+    print("MYCHOICE ===== ",uploadedChoice)
+    distance_list = list(zip(pic_list, list(map(lambda x :
+                         Levenshtein.distance(uploadedChoice, x), pic_list))))
+    
+    sorted_distance = sorted(distance_list, key=lambda x: x[1])
+    
+    chosen_pic = sorted_distance[0][0]
+    return chosen_pic
+    #for root, dirs, files in os.walk(picDir):
+    #    fileNames = files
+    #
+    #alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+    #if uploadedChoice in fileNames:
+    #    return uploadedChoice
+    #else:
+    #    for alpha in alphas:
+    #        uploadedChoice = uploadedChoice.split(alpha)[0]
+    #        for filename in fileNames:
+    #            if filename.split(alpha)[0] == uploadedChoice:
+    #                return filename
 
-    alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
-    if uploadedChoice in fileNames:
-        return uploadedChoice
-    else:
-        for alpha in alphas:
-            uploadedChoice = uploadedChoice.split(alpha)[0]
-            for filename in fileNames:
-                if filename.split(alpha)[0] == uploadedChoice:
-                    return filename
-
-    return "None"
+    #return "None"
 
 
 @blue.route('/project/exitProject', methods=['POST'])
@@ -279,4 +289,4 @@ def exitProject():
     from db_control import controller
     openid = request.form['openid']
     projectId = request.form['projectId']
-    return controller.deleteProject(projectId)
+    return controller.exitProject(openid, projectId)
