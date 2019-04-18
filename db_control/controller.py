@@ -1,24 +1,37 @@
 # -*- coding: utf-8 -*-
-from manage import User
-from manage import Project
+from manage import *
 from manage import db
+
+
+def getProject(projectId):
+    assert projectId is not None
+    projectId = int(projectId)
+    plist = Project.query.filter_by(id=projectId).all()
+    print(plist)
+    if len(plist) != 1:
+        return None
+    return plist[0]
+
+def getUser(openid):
+    assert openid is not None
+    ulist = User.query.filter_by(openid=openid).all()
+    print(openid)
+    if len(ulist) != 1:
+        return None
+    return ulist[0]
 
 
 def insertUser(openid,
                userIdentity,
                avatarUrl,
-               nickName,
-               ownedProjects,
-               participatedProjects):
+               nickName):
     """
-    :return: user id
+    :return: open id
     """
     u = User(openid=openid,
              userIdentity=userIdentity,
              avatarUrl=avatarUrl,
-             nickName=nickName,
-             ownedProjects=ownedProjects,
-             participatedProjects=participatedProjects)
+             nickName=nickName)
     db.session.add(u)
     db.session.flush()
     db.session.commit()
@@ -28,15 +41,11 @@ def insertUser(openid,
 def updateUser(openid,
                userIdentity,
                avatarUrl,
-               nickName,
-               ownedProjects,
-               participatedProjects):
+               nickName):
     """
     :param openid: col
     :param avatarUrl: col
     :param nickName: col
-    :param ownedProjects: col
-    :param participatedProjects: col
     :return: openid
     """
     ls = User.query.filter_by(openid=openid).all()
@@ -50,10 +59,6 @@ def updateUser(openid,
         u.userIdentity = userIdentity
     if nickName:
         u.nickName = nickName
-    if ownedProjects:
-        u.ownedProjects = ownedProjects
-    if participatedProjects:
-        u.participatedProjects = participatedProjects
     db.session.add(u)
     db.session.commit()
     return openid
@@ -79,24 +84,17 @@ def check_if_user_existed(openid=None):
 
 def insertProject(projectName="",
                   creatorOpenid="",
-                  workersOpenid="",
-                  workersNumber=0,
                   projectStatus="",
                   mainProject=False,
-                  createTimeStamp="",
-                  imageFileName=""):
+                  createTimeStamp=""):
     """
-    :parameter imagesPath: stores all paths of the project's images
     :return: projectId
     """
     project = Project(projectName=projectName,
                       creatorOpenid=creatorOpenid,
-                      workersOpenid=workersOpenid,
-                      workersNumber=workersNumber,
                       projectStatus=projectStatus,
                       mainProject=mainProject,
-                      createTimeStamp=createTimeStamp,
-                      imageFileName=imageFileName)
+                      createTimeStamp=createTimeStamp)
     db.session.add(project)
     db.session.flush()
     projectId = project.id
@@ -104,8 +102,10 @@ def insertProject(projectName="",
     ulist = User.query.filter_by(openid=creatorOpenid).all()
     if len(ulist) == 1:
         u = ulist[0]
-        u.ownedProjects += (projectId + ",")
-        db.session.add(u)
+        # add User_Owns_Project
+        u_o_p = User_Owns_Projects(user_id=u.id, project_id=projectId)
+        db.session.add(u_o_p)
+        db.session.flush()
     else:
         # in case with test, we pass
         return "wrong"
@@ -117,18 +117,13 @@ def insertProject(projectName="",
 def updateProject(projectId=None,
                   projectName=None,
                   creatorOpenid=None,
-                  workersOpenid=None,
-                  workersNumber=None,
                   projectStatus=None,
                   mainProject=None,
-                  createTimeStamp=None,
-                  imageFileName=None):
+                  createTimeStamp=None):
     """
     :param projectId: primary key
     :param projectName: col
     :param creatorOpenid: col
-    :param workersOpenid: col
-    :param workersNumber: col
     :param projectStatus: col
     :param mainProject: col
     :return: projectId
@@ -141,76 +136,53 @@ def updateProject(projectId=None,
         p.projectName = projectName
     if creatorOpenid:
         p.creatorOpenid = creatorOpenid
-    if workersOpenid:
-        p.workersOpenid = workersOpenid
     if projectStatus:
         p.projectStatus = projectStatus
-    if workersNumber:
-        p.workersNumber = workersNumber
     if mainProject is not None:
         p.mainProject = mainProject
     if createTimeStamp:
         p.createTimeStamp = createTimeStamp
-    if imageFileName:
-        p.imageFileName = imageFileName
     db.session.add(p)
     db.session.commit()
     return projectId
 
 
 def query_if_mine_or_participated(openid, projectId):
-    if not projectId:
-        return "projectId None"
-    projectId_int = int(projectId)
-    print(projectId)
-    plist = Project.query.filter_by(id=projectId_int).all()
-    if len(plist) != 1:
+    u = getUser(openid=openid)
+    p = getProject(projectId=projectId)
+    if u is None or p is None:
         return "wrong"
-    p = plist[0]
-    if p.creatorOpenid == openid:
+    u_o_p_list = User_Owns_Projects.query.filter_by(user_id=u.id, project_id=p.id)
+    if len(u_o_p_list) == 1:
         return "creator"
-    elif openid in p.workersOpenid.split(','):
+    u_i_p_list = User_In_Projects.query.filter_by(user_id=u.id, project_id=p.id)
+    if len(u_i_p_list) == 1:
         return "worker"
-    else:
-        return "no one"
+    return "no one"
 
 
 def joinProject(openid, projectId):
-    if not projectId or not openid:
-        return "id None"
-    projectId_int = int(projectId)
-    print("projectId", projectId)
-    print("openid", openid)
-    plist = Project.query.filter_by(id=projectId_int).all()
-    if len(plist) != 1:
-        return "projectId wrong"
-    ulist = User.query.filter_by(openid=openid).all()
-    if len(ulist) != 1:
-        return "user openid wrong"
-    p = plist[0]
-    p.workersOpenid += (openid + ",")
-    p.workersNumber += 1
-    u = ulist[0]
-    u.participatedProjects += (projectId + ",")
-    db.session.add(p)
-    db.session.add(u)
+    u = getUser(openid=openid)
+    p = getProject(projectId=projectId)
+    if u is None or p is None:
+        return "wrong"
+    # add User_In_Projects
+    u_i_p = User_In_Projects(user_id=u.id, project_id=p.id)
+    db.session.add(u_i_p)
     db.session.commit()
     return "success"
 
 
-def getProject(projectId):
+def getProjectDict(projectId):
     projectId_int = int(projectId)
     p = Project.query.filter_by(id=projectId_int).first()
     d = {
         'projectId': projectId,
         'projectName': p.projectName,
         'creatorOpenid': p.creatorOpenid,
-        'workersOpenid': p.workersOpenid,
-        'workersNumber': p.workersNumber,
         'projectStatus': p.projectStatus,
         'mainProject': p.mainProject,
-        'createTimeStamp': p.createTimeStamp,
-        'imageFileName': p.imageFileName
+        'createTimeStamp': p.createTimeStamp
     }
     print("getProject", d)
     return d
@@ -225,12 +197,9 @@ def getMainProject():
         'projectId': str(p.id).zfill(6),
         'projectName': p.projectName,
         'creatorOpenid': p.creatorOpenid,
-        'workersOpenid': p.workersOpenid,
-        'workersNumber': p.workersNumber,
         'projectStatus': p.projectStatus,
         'mainProject': p.mainProject,
-        'createTimeStamp': p.createTimeStamp,
-        'imageFileName': p.imageFileName
+        'createTimeStamp': p.createTimeStamp
     }
     u = User.query.filter_by(openid=p.creatorOpenid).first()
     d.update({'creatorNickName': u.nickName})
@@ -251,12 +220,9 @@ def query_batch_projects(order_by, start, end):
             'projectId': str(p.id).zfill(6),
             'projectName': p.projectName,
             'creatorOpenid': p.creatorOpenid,
-            'workersOpenid': p.workersOpenid,
-            'workersNumber': p.workersNumber,
             'projectStatus': p.projectStatus,
             'mainProject': p.mainProject,
-            'createTimeStamp': p.createTimeStamp,
-            'imageFileName': p.imageFileName
+            'createTimeStamp': p.createTimeStamp
         }
         u = User.query.filter_by(openid=p.creatorOpenid).first()
         tempD.update({'creatorNickName': u.nickName})
@@ -267,70 +233,109 @@ def query_batch_projects(order_by, start, end):
 
 def deleteProject(projectId, openid):
     """
+    this function is for project owners
     :param projectId: the projectId to be deleted
     :param openid: the projectId's owner openid
     :return: result success or not
     """
-    plist = Project.query.filter_by(id=projectId).all()
-    ulist = User.query.filter_by(openid=openid).all()
-    print(projectId, openid)
-    print(plist, ulist)
-    if len(plist) != 1 or len(ulist) != 1:
-        return "something wrong"
-    p = plist[0]
-    u = ulist[0]
-    ownedProjectsStr = u.ownedProjects
-    ownedProjectsStr = removeSubproject(ownedProjectsStr, projectId)
-    if ownedProjectsStr:
-        u.ownedProjects = ownedProjectsStr
-    else:
-        return "something wrong deletingProject"
-    db.session.add(u)
-    db.session.delete(p)
+    u = getUser(openid=openid)
+    p = getProject(projectId=projectId)
+    if u is None or p is None:
+        return "wrong"
+
+    u_o_p_list = User_Owns_Projects.query.filter_by(user_id=u.id, project_id=p.id)
+    if len(u_o_p_list) != 1:
+        return "wrong"
+    u_o_p = u_o_p_list[0]
+    # delete u_o_p
+    db.session.delete(u_o_p)
     db.session.commit()
     return "delete success"
 
 
-def removeSubproject(projectIds, projectId):
-    if projectIds.find(projectId) == -1:
-        return None
-    splited = projectIds.split(projectId)
-    if len(splited) != 2:
-        return None
-    if splited[0] == '' and splited[1] == '':
-        projectIds = ""
-    elif splited[0] == '' and splited[1] != '':
-        projectIds = splited[1][1:]
-    elif splited[1] == '' and splited[0] != '':
-        projectIds = splited[0][:-1]
-    elif splited[0] != '' and splited[0] != '':
-        projectIds = splited[0][:-1] + splited[1]
-    else:
-        return None
-    return projectIds
-
-
 def exitProject(openid, projectId):
     """
+    this function is for participators
     :param openid: participator
     :param projectId: project to be exited
     :return: result success or not
     """
-    plist = Project.query.filter_by(id=projectId).all()
-    ulist = User.query.filter_by(openid=openid).all()
-    print(projectId, openid)
-    print(plist, ulist)
-    if len(plist) != 1 or len(ulist) != 1:
-        return "something wrong"
-    p = plist[0]
-    u = ulist[0]
-    participatedProjectsStr = u.participatedProjects
-    participatedProjectsStr = removeSubproject(participatedProjectsStr, projectId)
-    if participatedProjectsStr:
-        u.participatedProjects = participatedProjectsStr
-    else:
-        return "something wrong exitingProject"
-    db.session.add(u)
-    db.session.delete(p)
+    u = getUser(openid=openid)
+    p = getProject(projectId=projectId)
+    if u is None or p is None:
+        return "wrong"
+    u_i_p_list = User_In_Projects.query.filter_by(user_id=u.id, project_id=p.id)
+    if len(u_i_p_list) != 1:
+        return "wrong"
+    u_i_p = u_i_p_list[0]
+    db.session.delete(u_i_p)
     db.session.commit()
     return "exit success"
+
+
+def pickImage(projectId, imageFileName):
+    """
+    :param projectId
+    :param ImageFileName
+    :return: result success or not
+    """
+    p = getProject(projectId)
+    p_o_s = Project_Owns_Schemes(project_id=p.id, imageFileName=imageFileName, votes=0)
+    db.session.add(p_o_s)
+    db.session.flush()
+    db.session.commit()
+    return "success"
+
+
+def voteProject(openid, projectId, imageFileName):
+    """
+        :param projectId
+        :param imageFileName
+        :return: result success or not
+        """
+    p = getProject(projectId)
+    u = getProject(openid)
+    if not p or not u:
+        return "wrong"
+    p_o_s_list = Project_Owns_Schemes.query.filter_by(project_id=p.id, imageFileName=imageFileName)
+    if len(p_o_s_list) != 1:
+        return "wrong"
+    p_o_s = p_o_s_list[0]
+    p_o_s.votes += 1
+    db.session.add(p_o_s)
+    db.session.commit()
+    return "success"
+
+
+def getVotesResult(projectId):
+    """
+    this function return a dict for each vote result of one scheme
+    :param projectId: str
+    :return: dict
+    """
+    p = getProject(projectId)
+    if not p:
+        return "wrong"
+    p_o_s_list = Project_Owns_Schemes.query.filter_by(p.id)
+    if len(p_o_s_list) == 0:
+        return {"status": "no schemes found"}
+    d = {"status": "success"}
+    for p_o_s in p_o_s_list:
+        d.update({p_o_s.imageFileName: p_o_s.votes})
+    return d
+
+
+def leaveMessage(projectId, message, openid):
+    """
+    this function add a message from a certain fuck'in user to the certain project
+    :param projectId: str
+    :param message: str
+    :param openid: str
+    :return: success or not
+    """
+    p = getProject(projectId)
+    u = getUser(openid)
+    if not p or not u:
+        return "wrong"
+    # TODO
+

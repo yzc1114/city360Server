@@ -28,15 +28,11 @@ def insertUser():
     avatarUrl = request.form['avatarUrl']
     nickName = request.form['nickName']
     userIdentity = request.form['userIdentity']
-    ownedProjects = ""
-    participatedProjects = ""
     from db_control import controller
     return controller.insertUser(openid=openid,
                                  userIdentity=userIdentity,
                                  avatarUrl=avatarUrl,
-                                 nickName=nickName,
-                                 ownedProjects=ownedProjects,
-                                 participatedProjects=participatedProjects)
+                                 nickName=nickName)
 
 
 @blue.route('/updateUser', methods=['POST'])
@@ -45,8 +41,6 @@ def updateUser():
         'avatarUrl': None,
         'userIdentity': None,
         'nickName': None,
-        'ownedProjects': None,
-        'participatedProjects': None
     }
     openid = request.form['openid']
     print("when updating user, openid = ", openid)
@@ -58,9 +52,7 @@ def updateUser():
     return controller.updateUser(openid=openid,
                                  userIdentity=attrs['userIdentity'],
                                  avatarUrl=attrs['avatarUrl'],
-                                 nickName=attrs['nickName'],
-                                 ownedProjects=attrs['ownedProjects'],
-                                 participatedProjects=attrs['participatedProjects'])
+                                 nickName=attrs['nickName'])
 
 
 @blue.route('/queryUser', methods=['POST'])
@@ -73,9 +65,7 @@ def queryUser():
         'openid': u.openid,
         'nickName': u.nickName,
         'avatarUrl': u.avatarUrl,
-        'ownedProjects': u.ownedProjects,
-        'userIdentity': u.userIdentity,
-        'participatedProjects': u.participatedProjects
+        'userIdentity': u.userIdentity
     }
     print(json_dict)
     return json.dumps(json_dict)
@@ -97,20 +87,11 @@ def newProject():
     createTimeStamp = request.form['createTimeStamp']
     mainProject = request.form['mainProject']
     mainProject = False if 'false' == mainProject else True
-    imageFileName = request.form['imageFileName']
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
-                                         workersOpenid="",
-                                         workersNumber=0,
                                          projectStatus=u"方案设计阶段",
                                          mainProject=mainProject,
-                                         createTimeStamp=createTimeStamp,
-                                         imageFileName=imageFileName)
-    # projectImgDir = os.path.join(projectImgsDir, projectId)
-    # if we have got the directory already, delete it and remake one
-    # if projectId in os.listdir(projectImgsDir):
-    #     shutil.rmtree(projectImgDir)
-    # os.mkdir(projectImgDir)
+                                         createTimeStamp=createTimeStamp)
     return projectId
 
 
@@ -123,12 +104,9 @@ def updateProject():
     attrs = {
         'projectName': None,
         'creatorOpenid': None,
-        'workersOpenid': None,
-        'workersNumber': None,
         'projectStatus': None,
         'mainProject': None,
-        'createTimeStamp': None,
-        'imageFileName': None
+        'createTimeStamp': None
     }
     for (key, value) in attrs.items():
         if key in request.form:
@@ -137,12 +115,9 @@ def updateProject():
     projectId = controller.updateProject(projectId=projectId,
                                          projectName=attrs['projectName'],
                                          creatorOpenid=attrs['creatorOpenid'],
-                                         workersOpenid=attrs['workersOpenid'],
-                                         workersNumber=attrs['workersNumber'],
                                          projectStatus=attrs['projectStatus'],
                                          mainProject=attrs['mainProject'],
-                                         createTimeStamp=attrs['createTimeStamp'],
-                                         imageFileName=attrs['imageFileName'])
+                                         createTimeStamp=attrs['createTimeStamp'])
     # if attrs['updateImg']:
     #     projectId = str(projectId).zfill(6)
     #     projectImgDir = os.path.join(projectImgsDir, projectId)
@@ -204,7 +179,7 @@ def getMainProject():
 def getProject():
     from db_control import controller
     projectId = request.form['projectId']
-    return json.dumps(controller.getProject(projectId))
+    return json.dumps(controller.getProjectDict(projectId))
 
 
 #@blue.route('/downloadImg/<imgFileName>')
@@ -215,15 +190,14 @@ def getProject():
 #    return send_from_directory(projectImgDir, filename, as_attachment=True)
 
 
-@blue.route('/downloadImg/<test>')
-def downloadImg(test):
-    imageFileName = test
-    filename = imageFileName + '.jpg'
-    print(filename)
-    print(picDir)
-    # return test
-    # TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    return send_from_directory(picDir, filename, as_attachment=True)
+#@blue.route('/downloadImg/<test>')
+#def downloadImg(test):
+#    imageFileName = test
+#    filename = imageFileName + '.jpg'
+#    print(filename)
+#    print(picDir)
+#    # return test
+#    return send_from_directory(picDir, filename, as_attachment=True)
 
 
 
@@ -259,8 +233,8 @@ def getPossibleImageFileNames():
     
     pic_list = list(map(lambda x : x.split('.')[0],
                         os.listdir(picDir)))
-    print(pic_list)
-    print("MYCHOICE ===== ",uploadedChoice)
+    # print(pic_list)
+    print("MYCHOICE ===== ", uploadedChoice)
     distance_list = list(zip(pic_list, list(map(lambda x :
                          Levenshtein.distance(uploadedChoice, x), pic_list))))
     
@@ -290,3 +264,26 @@ def exitProject():
     openid = request.form['openid']
     projectId = request.form['projectId']
     return controller.exitProject(openid, projectId)
+
+
+@blue.route('/project/vote', methods=['POST'])
+def voteProject():
+    from db_control import controller
+    openid = request.form['openid']
+    projectId = request.form['projectId']
+    imageFileName = request.form['imageFileName']
+    return controller.voteProject(openid, projectId, imageFileName)
+
+@blue.route('/project/pickImage', method=['POST'])
+def pickImage():
+    from db_control import controller
+    projectId = request.form['projectId']
+    imageFileName = request.form['imageFileName']
+    return controller.pickImage(projectId, imageFileName)
+
+@blue.route('/project/queryVotes', method=['POST'])
+def queryVotes():
+    from db_control import controller
+    projectId = request.form['projectId']
+    votesDict = controller.getVotesResult(projectId)
+    return json.dumps(votesDict)

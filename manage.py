@@ -13,24 +13,17 @@ db = SQLAlchemy(app)
 
 
 class User(db.Model):
-    #
-    #
     id = db.Column(db.Integer, primary_key=True)
     userIdentity = db.Column(db.String(10))
-    openid = db.Column(db.String(20))
+    openid = db.Column(db.String(20), primary_key=True)
     avatarUrl = db.Column(db.String(20))
     nickName = db.Column(db.String(20))
-    ownedProjects = db.Column(db.Text)
-    participatedProjects = db.Column(db.Text)
 
-
-    def __init__(self, openid, userIdentity, avatarUrl, nickName, ownedProjects, participatedProjects):
+    def __init__(self, openid, userIdentity, avatarUrl, nickName):
         self.avatarUrl = avatarUrl
         self.useuserIdentity = userIdentity
         self.openid = openid
         self.nickName = nickName
-        self.ownedProjects = ownedProjects
-        self.participatedProjects = participatedProjects
 
     def __repr__(self):
         return '<User %r>' % self.avatarUrl
@@ -41,35 +34,58 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     projectName = db.Column(db.String(20))
     creatorOpenid = db.Column(db.String(20))
-    workersOpenid = db.Column(db.Text)
-    workersNumber = db.Column(db.Integer)
     projectStatus = db.Column(db.String(20))
     mainProject = db.Column(db.Integer)
     createTimeStamp = db.Column(db.Integer)
-    imageFileName = db.Column(db.String(20))
-
 
     def __init__(self,
                  projectName="",
                  creatorOpenid="",
-                 workersOpenid="",
-                 workersNumber=0,
                  projectStatus="",
                  mainProject=False,
-                 createTimeStamp="",
-                 imageFileName=""):
+                 createTimeStamp=""):
         self.projectName = projectName
         self.creatorOpenid = creatorOpenid
-        self.workersOpenid = workersOpenid
-        self.workersNumber = workersNumber
         self.projectStatus = projectStatus
         self.mainProject = mainProject
         self.createTimeStamp = createTimeStamp
-        self.imageFileName = imageFileName
-
 
     def __repr__(self):
         return '<Project %r>' % self.id
+
+
+class User_Owns_Projects(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), primary_key=True)
+    project_id = db.Column(db.Integer, db.ForeignKey('Project.id'), primary_key=True)
+
+    def __init__(self, user_id, project_id):
+        self.user_id = user_id
+        self.project_id = project_id
+
+
+class User_In_Projects(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), primary_key=True)
+    project_id = db.Column(db.Integer, db.ForeignKey('Project.id'), primary_key=True)
+
+    def __init__(self, user_id, project_id):
+        self.user_id = user_id
+        self.project_id = project_id
+
+
+class Project_Owns_Schemes(db.Model):
+    project_id = db.Column(db.Integer, db.ForeignKey('Project.id'), primary_key=True)
+    imageFileName = db.Column(db.String(20), primary_key=True)
+    votes = db.Column(db.Integer)
+
+    def __init__(self, project_id, imageFileName, votes=0):
+        self.project_id = project_id
+        self.imageFileName = imageFileName
+        self.votes = votes
+
+class Project_Owns_Messages(db.Model):
+    project_id = db.Column(db.Integer, db.ForeignKey('Project.id'), primary_key=True)
+    # TODO
+
 
 
 def db_init():
