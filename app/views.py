@@ -7,7 +7,7 @@ import shutil
 import json
 import Levenshtein
 
-blue = Blueprint('first', __name__)
+blue = Blueprint('first', __name__, static_folder='../', static_url_path="")
 
 
 baseDir = os.getcwd()
@@ -29,6 +29,7 @@ def insertUser():
     nickName = request.form['nickName']
     userIdentity = request.form['userIdentity']
     from db_control import controller
+    print(request.form)
     return controller.insertUser(openid=openid,
                                  userIdentity=userIdentity,
                                  avatarUrl=avatarUrl,
@@ -87,10 +88,14 @@ def newProject():
     createTimeStamp = request.form['createTimeStamp']
     mainProject = request.form['mainProject']
     mainProject = False if 'false' == mainProject else True
+    projectCity = request.form['projectCity']
+    projectStreetBlock = request.form['projectStreetBlock']
     projectId = controller.insertProject(projectName=projectName,
                                          creatorOpenid=creatorOpenid,
                                          projectStatus=u"方案设计阶段",
                                          mainProject=mainProject,
+                                         projectCity=projectCity,
+                                         projectStreetBlock=projectStreetBlock,
                                          createTimeStamp=createTimeStamp)
     return projectId
 
@@ -225,15 +230,14 @@ def deleteProject():
 
 @blue.route('/project/getPossibleImageFileNames', methods=['POST'])
 def getPossibleImageFileNames():
-    from db_control import controller
     print(request.form)
     uploadedChoice = request.form['imageName']
-    uploadedChoice = uploadedChoice.encode('utf-8')
+    #uploadedChoice = uploadedChoice.encode('utf-8')
     fileNames = None
     
     pic_list = list(map(lambda x : x.split('.')[0],
                         os.listdir(picDir)))
-    # print(pic_list)
+    print(pic_list)
     print("MYCHOICE ===== ", uploadedChoice)
     distance_list = list(zip(pic_list, list(map(lambda x :
                          Levenshtein.distance(uploadedChoice, x), pic_list))))
@@ -242,20 +246,19 @@ def getPossibleImageFileNames():
     
     chosen_pic = sorted_distance[0][0]
     return chosen_pic
-    #for root, dirs, files in os.walk(picDir):
+    # for root, dirs, files in os.walk(picDir):
     #    fileNames = files
-    #
-    #alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
-    #if uploadedChoice in fileNames:
-    #    return uploadedChoice
-    #else:
-    #    for alpha in alphas:
-    #        uploadedChoice = uploadedChoice.split(alpha)[0]
-    #        for filename in fileNames:
+    # alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+    # if uploadedChoice in fileNames:
+    #     return uploadedChoice
+    # else:
+    #     for alpha in alphas:
+    #         uploadedChoice = uploadedChoice.split(alpha)[0]
+    #         for filename in fileNames:
     #            if filename.split(alpha)[0] == uploadedChoice:
-    #                return filename
+    #                 return filename
 
-    #return "None"
+    # return "None"
 
 
 @blue.route('/project/exitProject', methods=['POST'])
@@ -269,21 +272,77 @@ def exitProject():
 @blue.route('/project/vote', methods=['POST'])
 def voteProject():
     from db_control import controller
-    openid = request.form['openid']
+    print(request.form)
     projectId = request.form['projectId']
     imageFileName = request.form['imageFileName']
-    return controller.voteProject(openid, projectId, imageFileName)
+    return controller.voteProject(projectId, imageFileName)
 
-@blue.route('/project/pickImage', method=['POST'])
+
+@blue.route('/project/pickImage', methods=['POST'])
 def pickImage():
     from db_control import controller
     projectId = request.form['projectId']
     imageFileName = request.form['imageFileName']
     return controller.pickImage(projectId, imageFileName)
 
-@blue.route('/project/queryVotes', method=['POST'])
+
+@blue.route('/project/queryVotes', methods=['POST'])
 def queryVotes():
     from db_control import controller
     projectId = request.form['projectId']
     votesDict = controller.getVotesResult(projectId)
     return json.dumps(votesDict)
+
+
+@blue.route('/project/addMessage', methods=['POST'])
+def addMessage():
+    from db_control import controller
+    projectId = request.form['projectId']
+    message_content = request.form['message_content']
+    return controller.addMessage(projectId=projectId, message_content=message_content)
+
+
+@blue.route('/project/queryProjectOwnsSchemes', methods=['POST'])
+def queryProjectOwnsSchemes():
+    from db_control import controller
+    projectId = request.form['projectId']
+    print(projectId)
+    return json.dumps(controller.queryProjectOwnsSchemes(projectId))
+
+
+@blue.route('/project/addScheme', methods=['POST'])
+def addScheme():
+    from db_control import controller
+    projectId = request.form['projectId']
+    imageFileName = request.form['imageFileName']
+    return controller.addScheme(projectId=projectId, imageFileName=imageFileName)
+
+
+@blue.route('/project/queryCandidateScheme', methods=['POST'])
+def queryCandidateScheme():
+    from db_control import controller
+    projectId = request.form['projectId']
+    return json.dumps(controller.queryCandidateScheme(projectId))
+
+
+@blue.route('/project/queryUserOwnsProjects', methods=['POST'])
+def queryUserOwnsProjects():
+    from db_control import controller
+    openid = request.form['openid']
+    startFrom = int(request.form['startFrom'])
+    limitation = int(request.form['limitation'])
+    return json.dumps(controller.queryUserOwnsProjects(openid=openid, startFrom=startFrom, limitation=limitation))
+
+
+@blue.route('/project/setCandidate', methods=['POST'])
+def setCandidate():
+    #set the highest votes as the candidate
+    from db_control import controller
+    projectId = request.form['projectId']
+    return controller.addCandidate(projectId=projectId)
+
+@blue.route('/project/queryWorkersAvatar', methods=['POST'])
+def queryWorkersAvatar():
+    from db_control import controller
+    projectId = request.form['projectId']
+    return json.dumps(controller.queryWorkersAvatar(projectId))
