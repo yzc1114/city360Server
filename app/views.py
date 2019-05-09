@@ -5,7 +5,7 @@ from flask import send_from_directory
 import os
 import shutil
 import json
-import Levenshtein
+#import Levenshtein
 
 blue = Blueprint('first', __name__, static_folder='../', static_url_path="")
 
@@ -235,30 +235,31 @@ def getPossibleImageFileNames():
     #uploadedChoice = uploadedChoice.encode('utf-8')
     fileNames = None
     
-    pic_list = list(map(lambda x : x.split('.')[0],
-                        os.listdir(picDir)))
-    print(pic_list)
-    print("MYCHOICE ===== ", uploadedChoice)
-    distance_list = list(zip(pic_list, list(map(lambda x :
-                         Levenshtein.distance(uploadedChoice, x), pic_list))))
+    # pic_list = list(map(lambda x : x.split('.')[0],
+    #                     os.listdir(picDir)))
+    # print(pic_list)
+    # print("MYCHOICE ===== ", uploadedChoice)
+    # distance_list = list(zip(pic_list, list(map(lambda x :
+    #                      Levenshtein.distance(uploadedChoice, x), pic_list))))
     
-    sorted_distance = sorted(distance_list, key=lambda x: x[1])
+    # sorted_distance = sorted(distance_list, key=lambda x: x[1])
     
-    chosen_pic = sorted_distance[0][0]
-    return chosen_pic
-    # for root, dirs, files in os.walk(picDir):
-    #    fileNames = files
-    # alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
-    # if uploadedChoice in fileNames:
-    #     return uploadedChoice
-    # else:
-    #     for alpha in alphas:
-    #         uploadedChoice = uploadedChoice.split(alpha)[0]
-    #         for filename in fileNames:
-    #            if filename.split(alpha)[0] == uploadedChoice:
-    #                 return filename
+    # chosen_pic = sorted_distance[0][0]
+    # return chosen_pic
 
-    # return "None"
+    for root, dirs, files in os.walk(picDir):
+       fileNames = files
+    alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+    if uploadedChoice in fileNames:
+        return uploadedChoice
+    else:
+        for alpha in alphas:
+            uploadedChoice = uploadedChoice.split(alpha)[0]
+            for filename in fileNames:
+               if filename.split(alpha)[0] == uploadedChoice:
+                    return filename
+
+    return "None"
 
 
 @blue.route('/project/exitProject', methods=['POST'])
