@@ -37,15 +37,15 @@ def check_pic():
         for i in range(len(pic_list)):
             pic_list[i] = pic_list[i].encode('utf-8')
 
-        distance_list = list(zip(pic_list, list(map(lambda x:
-            Levenshtein.distance(requirement_str, x), pic_list))))
+        # distance_list = list(zip(pic_list, list(map(lambda x:
+        #     Levenshtein.distance(requirement_str, x), pic_list))))
 
-        sorted_distance = sorted(distance_list, key = lambda x: x[1])
+        # sorted_distance = sorted(distance_list, key = lambda x: x[1])
 
-        chosen_pic = [{'pic': sorted_distance[0][0]},
-            {'pic': sorted_distance[1][0]}]
-        res['code'] = 1
-        res['pic'] = chosen_pic
-        print(json.dumps(res))
-        return json.dumps(res)
+        # chosen_pic = [{'pic': sorted_distance[0][0]},
+        #     {'pic': sorted_distance[1][0]}]
+        # res['code'] = 1
+        # res['pic'] = chosen_pic
+        # print(json.dumps(res))
+        # return json.dumps(res)
 
