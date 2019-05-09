@@ -5,7 +5,7 @@ from flask import send_from_directory
 import os
 import shutil
 import json
-#import Levenshtein
+import Levenshtein
 
 blue = Blueprint('first', __name__, static_folder='../', static_url_path="")
 
