@@ -232,7 +232,7 @@ def deleteProject():
 def getPossibleImageFileNames():
     print(request.form)
     uploadedChoice = request.form['imageName']
-    #uploadedChoice = uploadedChoice.encode('utf-8')
+    uploadedChoice = uploadedChoice.encode('utf-8')
     fileNames = None
     
     return getRealImage(uploadedChoice)
@@ -250,7 +250,7 @@ def getRealImage(uploadedChoice):
     sorted_distance = sorted(distance_list, key=lambda x: x[1])
 
     chosen_pic = sorted_distance[0][0]
-    return chosen_pic
+    return chosen_pic + ".jpg"
 
 
 def getFakeImage(uploadedChoice):
