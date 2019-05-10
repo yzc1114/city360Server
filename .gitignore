@@ -1,1 +1,5 @@
 /pic
+/city360/childpage/pic
+supervisor.log
+supervisor_err.log
+uwsgi.ini

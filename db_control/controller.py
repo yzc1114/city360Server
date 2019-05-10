@@ -435,6 +435,17 @@ def queryUserOwnsProjects(openid, startFrom, limitation):
     return p_ids
 
 
+def queryUserParticipatesProjects(openid, startFrom, limitation):
+    u = getUser(openid=openid)
+    if not u:
+        return "wrong"
+    u_i_p_list = User_In_Projects.query.filter_by(user_id=u.id).all()[startFrom: startFrom + limitation]
+    p_ids = []
+    for u_i_p in u_i_p_list:
+        p_ids.append(str(u_i_p.project_id).zfill(6))
+    return p_ids
+
+
 def addCandidate(projectId):
     p = getProject(projectId)
     if not p:

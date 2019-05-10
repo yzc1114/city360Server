@@ -235,18 +235,25 @@ def getPossibleImageFileNames():
     #uploadedChoice = uploadedChoice.encode('utf-8')
     fileNames = None
     
-    # pic_list = list(map(lambda x : x.split('.')[0],
-    #                     os.listdir(picDir)))
-    # print(pic_list)
-    # print("MYCHOICE ===== ", uploadedChoice)
-    # distance_list = list(zip(pic_list, list(map(lambda x :
-    #                      Levenshtein.distance(uploadedChoice, x), pic_list))))
-    
-    # sorted_distance = sorted(distance_list, key=lambda x: x[1])
-    
-    # chosen_pic = sorted_distance[0][0]
-    # return chosen_pic
+    return getRealImage(uploadedChoice)
+    # return getFakeImage(uploadedChoice)
 
+
+def getRealImage(uploadedChoice):
+    pic_list = list(map(lambda x: x.split('.')[0],
+                        os.listdir(picDir)))
+    print(pic_list)
+    print("MYCHOICE ===== ", uploadedChoice)
+    distance_list = list(zip(pic_list, list(map(lambda x:
+                                                Levenshtein.distance(uploadedChoice, x), pic_list))))
+
+    sorted_distance = sorted(distance_list, key=lambda x: x[1])
+
+    chosen_pic = sorted_distance[0][0]
+    return chosen_pic
+
+
+def getFakeImage(uploadedChoice):
     for root, dirs, files in os.walk(picDir):
        fileNames = files
     alphas = ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
@@ -258,9 +265,6 @@ def getPossibleImageFileNames():
             for filename in fileNames:
                if filename.split(alpha)[0] == uploadedChoice:
                     return filename
-
-    return "None"
-
 
 @blue.route('/project/exitProject', methods=['POST'])
 def exitProject():
@@ -333,6 +337,15 @@ def queryUserOwnsProjects():
     startFrom = int(request.form['startFrom'])
     limitation = int(request.form['limitation'])
     return json.dumps(controller.queryUserOwnsProjects(openid=openid, startFrom=startFrom, limitation=limitation))
+
+
+@blue.route('/project/queryUserParticipatesProjects', methods=['POST'])
+def queryUserParticipatesProjects():
+    from db_control import controller
+    openid = request.form['openid']
+    startFrom = int(request.form['startFrom'])
+    limitation = int(request.form['limitation'])
+    return json.dumps(controller.queryUserParticipatesProjects(openid=openid, startFrom=startFrom, limitation=limitation))
 
 
 @blue.route('/project/setCandidate', methods=['POST'])
