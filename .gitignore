@@ -3,3 +3,4 @@
 supervisor.log
 supervisor_err.log
 uwsgi.ini
+city360.db
